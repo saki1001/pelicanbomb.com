@@ -11,36 +11,32 @@
     
     <section id="content">
         
+        <?php get_sidebar('sort'); ?>
+        
         <?php
+            // Query Category Object
+            $cat_obj = $wp_query->get_queried_object();
             
-            $sidebar = FALSE;
+            if ( is_category( 'see' ) || $cat_obj->parent === get_cat_ID('see') ) :
+                $template = 'content-summary';
+            else :
+                $template = 'content-preview';
+            endif;
             
             if ( have_posts() ) :
+        ?>
+                <div id="articles">
                 
-                if ( is_category('browse') ) :
-                    
-                    include('content-filters.php');
-                    get_template_part('content-browse', get_post_format() );
-                    
-                else :
-                    $sidebar = TRUE;
-            ?>
-                    
-                    <div id="articles">
-                    
-            <?php
-                    while ( have_posts() ) : the_post();
-                        get_template_part('content', get_post_format() );
-                    endwhile;
-            ?>
-                    
-                    </div>
-                    
-            <?php
-                endif;
+        <?php
+                while ( have_posts() ) : the_post();
+                    get_template_part( $template, get_post_format() );
+                endwhile;
+        ?>
                 
+                </div>
+                
+        <?php
             else :
-                $sidebar = TRUE;
                 
                 // Content Not Found Template
                 include('content-not-found.php');
@@ -48,15 +44,10 @@
             endif;
         ?>
         
-        <?php 
-            if ( $sidebar != FALSE) :
-                get_sidebar('featured');
-            endif;
-        ?>
-        
         <div class="pagination">
             <div id="next-page"><?php next_posts_link('Next &rarr;','') ?></div>
         </div>
+        
     </section>
     
 <?php get_footer(); ?>
