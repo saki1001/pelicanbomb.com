@@ -66,12 +66,22 @@
                 </h1>
             </div>
             
+            <?php
+                if( is_home() ) :
+                    // no menu
+                else :
+            ?>
+            
             <nav id="main-menu" role="navigation">
                 <?php
                     // default menu
                     wp_nav_menu( array( 'theme_location' => 'primary' ) );
                 ?>
             </nav>
+            
+            <?php
+                endif;
+            ?>
         </header>
         
         <div id="main">
