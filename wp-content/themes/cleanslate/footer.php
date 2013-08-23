@@ -14,6 +14,9 @@
 </div><!-- #page -->
 
 <footer id="footer" role="contentinfo">
+    
+    <?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
+    
     <div>
         Author &copy;2013
     </div>
