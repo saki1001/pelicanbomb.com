@@ -25,24 +25,22 @@ function get_thumbnail_custom($postId, $thumbType) {
         
         if ( has_post_thumbnail($postId) ) :
             // Use Featured Image URL
-            $thumb = $featImg;
-            $thumbUrl = $thumb[0];
+            $image = $featImg;
         else :
             // Use only first value in array
             $attachment = array_shift( $attachments );
             
             // Get thumbnail URL
-            $thumb = wp_get_attachment_image_src( $attachment->ID, $thumbType );
-            $thumbUrl = $thumb[0];
+            $image = wp_get_attachment_image_src( $attachment->ID, $thumbType );
             
         endif;
     else :
         
-        $thumbUrl = get_bloginfo('template_directory') . "/images/thumb-sidebar.jpg";
+        $image = '';
         
     endif;
     
-    return $thumbUrl;
+    return $image;
     
 }
 ?>
