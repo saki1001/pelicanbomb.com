@@ -29,7 +29,7 @@ function get_featured_posts($category, $number) {
         
         while ( $article_query->have_posts() ) : $article_query->the_post();
             
-            $articleHTML .= get_template_part('content-thumb');
+            $articleHTML .= get_template_part('content-preview');
             
         endwhile;
         
