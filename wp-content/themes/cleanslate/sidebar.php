@@ -6,20 +6,54 @@
  * @since CleanSlate 0.1
  */
 ?>
-        <div id="sidebar">
-            <h2>Normal Sidebar</h2>
-            <ul>
+
+<?php
+    
+    if ( is_single() && in_category('see') || in_category('events') ) {
+        
+        $featuredCat = 'read';
+        $featuredName = 'Featured Article';
+        $showAds = true;
+        
+    } elseif ( is_page() ) {
+        
+        $featuredCat = 'read';
+        $featuredName = 'Featured Article';
+        $showAds = false;
+        
+    } else {
+        
+        $featuredCat = 'events';
+        $featuredName = 'Upcoming Event';
+        $showAds = true;
+        
+    }
+?>
+    <div id="sidebar">
+        
+        <section class="featured-post">
+            <h3>
+                <?php echo $featuredName; ?>
+            </h3>
+            
             <?php
-                foreach( ( get_the_category() ) as $category ) {
-                $the_query = new WP_Query('category_name=' . $category->category_nicename);
-                while ($the_query->have_posts()) : $the_query->the_post();
+                // Get Featured Post
+                echo get_featured_posts($featuredCat, 1, 'content-feature');
             ?>
-                    <li>
-                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-                    </li>
-            <?php endwhile; ?>
-            <?php
-            }
-            ?>
-            </ul>
-        </div><!-- #sidebar -->
+            
+        </section>
+<?php
+    if( !is_page() ) :
+?>
+        <div class="ads">
+            
+            <div class="ad left"></div>
+            <div class="ad right"></div>
+            <div class="ad left"></div>
+            <div class="ad right"></div>
+            
+        </div>
+<?php
+    endif;
+?>
+    </div><!-- #sidebar -->

@@ -26,7 +26,7 @@
 
 <section id="sidebar">
     
-    <h2>Sort by</h2>
+    <h3>Sort by</h3>
     
     <ul>
         <li <?php echo $class; ?>>
@@ -37,7 +37,7 @@
         // Get categories, exclude misc. Read categories
         $args = array(
             'child_of' => $parentCategoryID,
-            'exclude' => '7,8,9,10,11,12,15,18,6',
+            'exclude' => '7,10,11,12,13,14,15,19,20',
             'hide_empty'  => 1
         );
         

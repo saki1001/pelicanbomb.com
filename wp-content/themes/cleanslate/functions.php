@@ -41,7 +41,8 @@
    */
   register_nav_menus( array(
       'primary' => __( 'Primary Menu', 'cleanslate' ),
-      'footer' => __( 'Footer Menu', 'cleanslate' )
+      'footer-pages' => __( 'Footer Pages', 'cleanslate' ),
+      'footer-cats' => __( 'Footer Categories', 'cleanslate' )
   ) );
 
   /**
@@ -145,9 +146,30 @@ add_filter('post_class', 'my_post_class');
 
 function my_post_class($classes){
     global $wp_query;
-    if(($wp_query->current_post+1) == $wp_query->post_count) $classes[] = 'last';
+    
+    // $classes = '';
+    
+    // // Add row classes to Press posts
+    // if ( $wp_query->is_category('press') && $wp_query->is_main_query() ) :
+    //     
+    //     if ( ($wp_query->current_post) % 8 == 0 ) $classes[] = 'new-row';
+    //     
+    // endif;
+    
+    // Add 'first' class
+    if ( ($wp_query->current_post) == 0 ) $classes[] = 'first';
+    
+    // Add 'last' class
+    if ( ($wp_query->current_post+1) == $wp_query->post_count && $wp_query->post_count > 1 ) $classes[] = 'last';
+    
     return $classes;
 }
+
+// Adding Thumbnails
+add_theme_support( 'post-thumbnails' );
+
+// Adding Custom Thumbnail Size;
+add_image_size( 'feature-thumbnail', 240, 170, true );
 
 // Prevent from adding link to inserted imgaes
 update_option('image_default_link_type','none');

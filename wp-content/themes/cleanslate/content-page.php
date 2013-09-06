@@ -10,51 +10,27 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
     <?php
-        // Define args to get attachments
-        $args = array(
-            'post_parent' => $post->ID,
-            'post_type' => 'attachment',
-            'post_mime_type' => 'image',
-            'orderby' => 'menu_order',
-            'order' => 'ASC'
-        );
-        
-        // Get image attachments
-        $attachments = get_posts( $args );
-        
-        if ( $attachments ) :
-            $noImageClass = '';
-        else :
-            $noImageClass = 'no-image';
-        endif;
+        // Get masthead for 'About' page
+        $masthead = get_field('about-masthead');
     ?>
     
-    <div id="text" class="text-container <?php echo $noImageClass; ?>">
+    <div id="text" class="text-container">
         <?php the_content(); ?>
     </div>
     
-    <?php
-        if ( $attachments ) :
-            // Insert images uploaded to post
-            foreach ( $attachments as $attachment ) {
-                
-                $image = wp_get_attachment_image( $attachment->ID, 'page' );
-                $imageUrl = wp_get_attachment_image_src( $attachment->ID, 'page' );
-    ?>
-            <figure>
-                <?php echo $image; ?>
-            </figure>
-            <figcaption>
-                <?php
-                    // Insert image description
-                    echo $attachment->post_content;
-                ?>
-            </figcaption>
-    <?php
-              }
-        else :
-            // do nothing
-        endif;
-    ?>
-    
 </article>
+
+
+<?php
+    if( is_page('about') ) :
+?>
+    <div id="sidebar" class="masthead">
+        <?php 
+            echo $masthead;
+        ?>
+    </div>
+<?php
+    else :
+        get_sidebar();
+    endif;
+?>

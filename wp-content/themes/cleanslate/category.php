@@ -11,7 +11,9 @@
     
     <section id="content">
         
-        <?php get_sidebar('sort'); ?>
+        <h2>
+            <?php wp_title(''); ?>
+        </h2>
         
         <?php
             // Query Category Object
@@ -43,6 +45,8 @@
                 
             endif;
         ?>
+        
+        <?php get_sidebar('sort'); ?>
         
         <div class="pagination">
             <div id="next-page"><?php next_posts_link('Next &rarr;','') ?></div>

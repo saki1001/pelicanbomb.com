@@ -7,57 +7,62 @@
  */
 ?>
 
-<?php
+<?php include('php/get-post-meta.php'); ?>
 
-$author = get_post_meta( get_the_ID(), 'read-author' );
-echo $author[0];
+<h2 class="post-title">
+    <span><?php the_title();?></span>
+</h2>
 
-$image1 = get_post_meta( get_the_ID(), 'image-1' );
-echo htmlspecialchars($image1[0]);
-
-?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-post-id="<?php echo date('m-d-Y', strtotime(get_the_date())); ?>">
-    <?php
-    // Set Arguments
-    $args = array(
-        'post_parent' => $post->ID,
-        'post_type' => 'attachment',
-        'post_mime_type' => 'image',
-        'orderby' => 'menu_order',
-        'order' => 'ASC'
-    );
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
-    // Get image attachments
-    $attachments = get_children( $args );
-    
-    // print_r($attachments);
-    
-    foreach( $attachments as $image ) :
-        // print_r($image);
-        $imageURL =  wp_get_attachment_image_src( $image->ID, 'medium' );
-        
-    ?>
-    
-        <img src="<?php echo $imageURL[0]; ?>" width="<?php echo $imageURL[1]; ?>" height="<?php echo $imageURL[2]; ?>" />
-    
-    <?php
-        
-    endforeach;
-    ?>
+    <?php include('content-slideshow.php'); ?>
     
     <div class="post-header">
-        <h2 class="post-title">
-            <a href="<?php the_permalink(); ?>"><?php the_title();?></a>
-        </h2>
+        <p class="post-author">
+            <span>By</span><?php echo $author; ?>
+        </p>
         
         <p class="post-date">
             <?php the_date(); ?>
         </p>
+        
+        <div class="post-social">
+            <a href="#" class="print" title="Print"></a>
+            <a href="#" class="Facebook" title="Facebook"></a>
+            <a href="#" class="Twitter" title="Twitter"></a>
+            <a href="#" class="Email" title="Email"></a>
+        </div>
     </div>
     
     <div class="text-container">
         <?php the_content(); ?>
+    </div>
+    
+    <div class="post-footer">
+        <p class="post-category">
+            <span>See More:</span>
+            <?php the_category(', '); ?>
+        </p>
+        
+    <?php
+        if( get_the_tags() ) {
+    ?>
+        <p class="post-tags">
+            <span>Tagged with:</span>
+            <?php the_tags('', ', '); ?>
+        </p>
+    <?php
+        }
+    ?>
+        
+        <div class="post-nav">
+            <p class="prev">
+                <?php previous_post_link('%link', '&larr; Previous', TRUE); ?> 
+            </p>
+            <p class="next">
+                <?php next_post_link('%link', 'Next &rarr;', TRUE); ?> 
+            </p>
+        </div>
     </div>
     
 </article>

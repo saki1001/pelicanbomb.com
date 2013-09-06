@@ -15,6 +15,10 @@ get_header(); ?>
         
         <section id="content">
             
+            <h2>
+                <?php wp_title(''); ?>
+            </h2>
+            
             <?php
                 while ( have_posts() ) : the_post();
                     

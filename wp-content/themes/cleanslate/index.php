@@ -17,50 +17,59 @@
                 $readCategoryID = get_cat_ID('read');
                 $seeCategoryID = get_cat_ID('see');
                 
-                $readImage = get_home_image('read', 'full');
-                // $collectImage = get_home_image('collect', 'large');
-                // $seeImage = get_home_image('see', 'large');
+                $readImage = get_home_image('read', 'large');
+                $collectImage = get_home_image('collect', 'large');
+                $seeImage = get_home_image('see', 'large');
         ?>
             
             <div id="primary">
+                <span class="angle"></span>
                 <section class="column read">
                     <a href="<?php echo get_category_link($readCategoryID); ?>">
-                        <h2>Read</h2>
+                        <div class="title">
+                            <h2>Read</h2>
+                        </div>
                         <img src="<?php echo $readImage[0]; ?>" width="<?php echo $readImage[1]; ?>" height="<?php echo $readImage[2]; ?>" alt="Read" />
                     </a>
                 </section>
                 
                 <section class="column collect">
                     <a href="http://www.thedropnola.com/">
-                        <h2>Collect</h2>
-                        <!-- <img src="<?php echo $readImage[0]; ?>" width="<?php echo $readImage[1]; ?>" height="<?php echo $readImage[2]; ?>" alt="Read" /> -->
+                        <div class="title">
+                            <h2>Collect</h2>
+                        </div>
+                        <img src="<?php echo $collectImage[0]; ?>" width="<?php echo $collectImage[1]; ?>" height="<?php echo $collectImage[2]; ?>" alt="Collect" />
                     </a>
                 </section>
                 
                 <section class="column see">
                     <a href="<?php echo get_category_link($seeCategoryID); ?>">
-                        <h2>See</h2>
-                        <!-- <img src="<?php echo $readImage[0]; ?>" width="<?php echo $readImage[1]; ?>" height="<?php echo $readImage[2]; ?>" alt="Read" /> -->
+                        <div class="title">
+                            <h2>See</h2>
+                        </div>
+                        <img src="<?php echo $seeImage[0]; ?>" width="<?php echo $seeImage[1]; ?>" height="<?php echo $seeImage[2]; ?>" alt="See" />
                     </a>
                 </section>
             </div>
             
             <div id="secondary">
                 
+                <?php get_sidebar(); ?>
+                
                 <section class="featured articles">
-                    <h2>Featured Articles</h2>
+                    <h3>Featured Articles</h3>
                     
                     <?php
                         // Get Featured Read Articles
-                        echo get_featured_posts('read', 3);
+                        echo get_featured_posts('read', 3, 'content-preview');
                     ?>
                     
                 </section>
                 
                 <section class="featured products">
-                    <h2>Featured Products</h2>
+                    <h3>Collect from The Drop</h3>
                     
-                    
+                    <p>Content will be filled in dynamically from Big Cartel site.</p>
                     
                 </section>
                 

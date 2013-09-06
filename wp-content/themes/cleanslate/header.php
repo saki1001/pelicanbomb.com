@@ -51,6 +51,13 @@
                 var templateDirectoryUrl = '<?php echo get_template_directory_uri(); ?>';
             </script>
             <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr.js" type="text/javascript"></script> -->
+        <?php
+            if ( is_single() ) {
+        ?>
+            <script src="<?php echo get_template_directory_uri(); ?>/js/slideshow.js" type="text/javascript"></script>
+        <?php
+            }
+        ?>
         
     </head>
     
@@ -60,28 +67,32 @@
     
     <div id="page">
         <header id="branding" role="banner">
-            <div id="logo">
-                <h1 id="site-title">
-                    <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><span><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span></a>
-                </h1>
-            </div>
-            
-            <?php
-                if( is_home() ) :
-                    // no menu
-                else :
-            ?>
-            
-            <nav id="main-menu" role="navigation">
+            <div class="wrapper">
+                
+                <div id="logo">
+                    <h1 id="site-title">
+                        <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><span><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span></a>
+                    </h1>
+                </div>
+                
                 <?php
-                    // default menu
-                    wp_nav_menu( array( 'theme_location' => 'primary' ) );
+                    if( is_home() ) :
+                        // no menu
+                    else :
                 ?>
-            </nav>
-            
-            <?php
-                endif;
-            ?>
+                
+                <nav id="main-menu" role="navigation">
+                    <?php
+                        // default menu
+                        wp_nav_menu( array( 'theme_location' => 'primary' ) );
+                    ?>
+                </nav>
+                
+                <?php
+                    endif;
+                ?>
+                
+            </div>
         </header>
         
         <div id="main">

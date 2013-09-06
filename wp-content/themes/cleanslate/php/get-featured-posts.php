@@ -1,5 +1,5 @@
 <?php
-function get_featured_posts($category, $number) {
+function get_featured_posts($category, $number, $template) {
     
     wp_reset_postdata();
     
@@ -13,23 +13,30 @@ function get_featured_posts($category, $number) {
         $number = 1;
     }
     
+    if ($number === 1) {
+        $orderBy = 'rand';
+    } else {
+        $orderBy = 'date';
+    }
+    
     // Set Arguments
     $article_args = array(
         'category_name' => $category,
         'tag' => 'featured',
         'posts_per_page' => $number,
-        'order'    => 'DESC'
+        'orderby'    => $orderBy
     );
     
     $article_query = new WP_Query( $article_args );
     
     if ( $article_query->have_posts() ) :
-        
+        _log('post count');
+        _log($article_query->post_count);
         $articleHTML = '';
         
         while ( $article_query->have_posts() ) : $article_query->the_post();
             
-            $articleHTML .= get_template_part('content-preview');
+            $articleHTML .= get_template_part($template);
             
         endwhile;
         

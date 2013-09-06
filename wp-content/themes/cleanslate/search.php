@@ -11,13 +11,15 @@
     
     <section id="content">
         
-        <?php include('content-filters.php'); ?>
+        <h2>Search Results for <span>&ldquo;<?php the_search_query() ?>&rdquo;</span></h2>
         
         <?php
             
             if ( have_posts() ) :
                 
-                get_template_part('content-browse', get_post_format() );
+                while ( have_posts() ) : the_post();
+                    get_template_part('content-preview', get_post_format() );
+                endwhile;
                 
             else :
                 // Content Not Found Template

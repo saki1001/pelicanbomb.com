@@ -15,11 +15,28 @@
 
 <footer id="footer" role="contentinfo">
     
-    <?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
-    
-    <div>
-        Author &copy;2013
+    <div class="footer-wrapper">
+        
+        <div class="column links">
+            <h3>Links</h3>
+            <?php wp_nav_menu( array( 'theme_location' => 'footer-pages' ) ); ?>
+            <?php wp_nav_menu( array( 'theme_location' => 'footer-cats' ) ); ?>
+        </div>
+        
+        <div class="column newsletter">
+            <form action="#" method="post" id="newsletter-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+                <input type="email" value="Enter your email" name="EMAIL" class="email" id="n" placeholder="Enter your email" required>
+                <input type="submit" id="newsletter-form-submit" name="subscribe" value="Sign Up" />
+            </form>
+            <p>Sign up to get updates from Pelican Bomb.</p>
+        </div>
+        
+        <div class="column search">
+            <?php get_search_form(); ?>
+        </div>
+        
     </div>
+    
 </footer><!-- #footer -->
 
 <?php wp_footer(); ?>

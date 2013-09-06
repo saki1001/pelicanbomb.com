@@ -18,7 +18,7 @@ function get_home_image($category, $size) {
         'category_name' => $category,
         'tag' => 'home',
         'posts_per_page' => '1',
-        'order'    => 'DESC'
+        'orderby'    => 'rand'
     );
     
     $home_query = new WP_Query( $home_args );

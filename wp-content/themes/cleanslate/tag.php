@@ -8,22 +8,41 @@
 ?>
 
 <?php get_header(); ?>
-        
-    <section id="content">
     
+    <section id="content">
+        
+        <h2>
+            <?php wp_title(''); ?>
+        </h2>
+        
     <?php
         
         if ( have_posts() ) :
+    ?>
+            <div id="articles">
             
-            include('content.php');
-                
+    <?php
+            while ( have_posts() ) : the_post();
+                get_template_part( 'content-preview', get_post_format() );
+            endwhile;
+    ?>
+            
+            </div>
+            
+    <?php
         else :
             // Content Not Found Template
             include('content-not-found.php');
             
         endif;
     ?>
-    
+        
+        <?php get_sidebar('sort'); ?>
+        
+        <div class="pagination">
+            <div id="next-page"><?php next_posts_link('Next &rarr;','') ?></div>
+        </div>
+        
     </section>
     
 <?php get_footer(); ?>
