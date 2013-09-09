@@ -39,9 +39,7 @@
         
         <?php get_sidebar('sort'); ?>
         
-        <div class="pagination">
-            <div id="next-page"><?php next_posts_link('Next &rarr;','') ?></div>
-        </div>
+        <?php get_template_part( 'content-pagination' ); ?>
         
     </section>
     
