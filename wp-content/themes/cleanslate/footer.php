@@ -31,9 +31,15 @@
             <p>Sign up to get updates from Pelican Bomb.</p>
         </div>
         
+    <?php
+        if( !is_search() ) {
+    ?>
         <div class="column search">
             <?php get_search_form(); ?>
         </div>
+    <?php
+        }
+    ?>
         
     </div>
     
