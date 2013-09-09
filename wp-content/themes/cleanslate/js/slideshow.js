@@ -165,11 +165,11 @@ $j(document).ready(function() {
     };
     
     var showNav = function() {
-        $j('.nav').fadeIn(100);
+        $j(this).children('.arrow').fadeIn(100);
     };
     
     var hideNav = function() {
-        $j('.nav').fadeOut(100);
+        $j(this).children('.arrow').fadeOut(100);
     };
     
     
@@ -193,8 +193,10 @@ $j(document).ready(function() {
     });
     
     $j('#pager .page').on('click', showImage);
-    $j('.border .arrow').on('click', showPrevNext);
-    $j('#media').on({
+    $j('#media .border .arrow').on({
+        'click': showPrevNext
+    });
+    $j('#media .border').on({
         'mouseenter': showNav,
         'mouseleave': hideNav
     });
