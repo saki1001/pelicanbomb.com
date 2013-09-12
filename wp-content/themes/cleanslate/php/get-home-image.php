@@ -16,7 +16,14 @@ function get_home_image($category, $size) {
     // Set Arguments
     $home_args = array(
         'category_name' => $category,
-        'tag' => 'home',
+        'meta-key' => 'home-banner',
+        'meta_query' => array(
+            array(
+                'key' => 'home-banner',
+                'value' => 1,
+                'compare' => 'IN',
+            )
+        ),
         'posts_per_page' => '1',
         'orderby'    => 'rand'
     );
@@ -27,7 +34,7 @@ function get_home_image($category, $size) {
         
         while ( $home_query->have_posts() ) : $home_query->the_post();
             
-            $postID = get_the_id();
+            $postID = get_the_ID();
             
             // Set Arguments
             $image_args = array(
@@ -42,7 +49,7 @@ function get_home_image($category, $size) {
             $attachments = get_children( $image_args );
             
             // Featured Image
-            $featImg = wp_get_attachment_image_src( get_post_thumbnail_id($postId), $size );
+            $featImg = wp_get_attachment_image_src( get_post_thumbnail_id($postID), $size );
             
             if ( $featImg || $attachments ) :
                 
