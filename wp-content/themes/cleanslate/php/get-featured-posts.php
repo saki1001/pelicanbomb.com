@@ -19,10 +19,24 @@ function get_featured_posts($category, $number, $template) {
         $orderBy = 'date';
     }
     
-    // Set Arguments
+    // // Set Arguments
+    // $article_args = array(
+    //     'category_name' => $category,
+    //     'tag' => 'featured',
+    //     'posts_per_page' => $number,
+    //     'orderby'    => $orderBy
+    // );
+    
     $article_args = array(
         'category_name' => $category,
-        'tag' => 'featured',
+        'meta-key' => 'featured',
+        'meta_query' => array(
+            array(
+                'key' => 'featured',
+                'value' => 1,
+                'compare' => 'IN',
+            )
+        ),
         'posts_per_page' => $number,
         'orderby'    => $orderBy
     );
@@ -30,8 +44,7 @@ function get_featured_posts($category, $number, $template) {
     $article_query = new WP_Query( $article_args );
     
     if ( $article_query->have_posts() ) :
-        _log('post count');
-        _log($article_query->post_count);
+        
         $articleHTML = '';
         
         while ( $article_query->have_posts() ) : $article_query->the_post();
