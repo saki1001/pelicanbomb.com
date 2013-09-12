@@ -19,7 +19,7 @@
             // Query Category Object
             $cat_obj = $wp_query->get_queried_object();
             
-            if ( is_category( 'see' ) || $cat_obj->parent === get_cat_ID('see') ) :
+            if ( is_category('see') || $cat_obj->parent === get_cat_ID('see') ) :
                 $template = 'content-summary';
             else :
                 $template = 'content-preview';
