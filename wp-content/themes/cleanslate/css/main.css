@@ -403,9 +403,33 @@ body.home #secondary {
 }
 
 body.home #secondary .featured {
+    width: 668px;
     margin-right: 12px;
     margin-bottom: 20px;
     float: left;
+}
+
+/* Article Date Box
+-------------------------------------------------------------- */
+article.summary .post-thumb {
+    overflow: hidden;
+    position: relative;
+}
+
+article.summary .post-thumb .date-box {
+    position: absolute;
+    right: 0;
+    width: 45px;
+    height: 40px;
+    background-color: #222222;
+    color: #F4F4F4;
+    font-size: 3.5em;
+    font-family: 'Oswald-Bold';
+    padding: 10px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1;
 }
 
 /* Article Preview
@@ -462,7 +486,7 @@ article.preview a .post-date,
 article.preview a .post-author {
     font-size: 1.1em;
     max-height: 15px;
-    overflow: hidden;
+/*    overflow: hidden;*/
 }
 
 article.preview.feature a .post-date,
@@ -474,7 +498,7 @@ article.preview a .post-title {
     font-size: 1.3em;
     font-style: italic;
     max-height: 47px;
-    overflow: hidden;
+/*    overflow: hidden;*/
 }
 
 article.preview.feature a .post-title {
@@ -537,8 +561,8 @@ article.preview.feature a .caption {
 article.summary {
     width: 640px;
     height: 160px;
-    padding: 0 20px 20px 0;
-    margin: 0 20px 25px 0;
+    padding: 0 10px 20px 0;
+    margin: 0 30px 25px 0;
     border-bottom: solid 1px #999;
     text-align: left;
     float: left;
@@ -682,6 +706,8 @@ body.archive.tag #main #sidebar {
     width: 85px;
 }
 
+/* See Category
+-------------------------------------------------------------- */
 body.category-see #main #articles {
     width: 680px;
     margin: 0;
@@ -690,6 +716,111 @@ body.category-see #main #articles {
 body.category-see #main #sidebar {
     width: 240px;
 }
+
+/* Spaces Category
+-------------------------------------------------------------- */
+body.category-spaces #main #spaces {
+    width: 680px;
+    margin: 0;
+}
+
+body.category-spaces #main #sidebar {
+    width: 240px;
+}
+
+body.category-spaces #main #mapBox {
+    width: 638px;
+    height: 458px;
+    border: solid 1px #E6E6E6;
+    margin-right: 40px;
+    float: left;
+}
+
+body.category-spaces #spaces {
+    width: 640px;
+    margin: 30px 40px 0 0;
+    float: left;
+}
+
+body.category-spaces #spaces .space {
+    width: 640px;
+    font-size: 1.2em;
+    line-height: 1.4;
+    border-bottom: solid 1px #999;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+body.category-spaces #spaces .space .column {
+    margin-right: 20px;
+    overflow: hidden;
+    float: left;
+}
+
+body.category-spaces #spaces .space .column.title {
+    width: 140px;
+}
+
+body.category-spaces #spaces .space .column.address {
+    width: 260px;
+}
+
+body.category-spaces #spaces .space .column.details {
+    width: 200px;
+    margin-right: 0;
+}
+
+body.category-spaces #spaces .space p {
+    margin-bottom: 5px;
+}
+
+body.category-spaces #spaces .space .tools a {
+    font-size: 0.8em;
+    color: #999;
+    text-transform: uppercase;
+}
+
+body.category-spaces #spaces .space .tools a:hover {
+    color: #6545E9;
+}
+
+body.category-spaces #spaces .space .address a {
+    color: #6545E9;
+}
+
+body.category-spaces #spaces .space .details p {
+    width: 100%;
+    position: relative;
+}
+
+body.category-spaces #spaces .space .details span {
+    margin-left: 55px;
+    display: block;
+}
+
+body.category-spaces #spaces .space .details span.label {
+    color: #999;
+    font-style: italic;
+    width: 50px;
+    margin-left: 0;
+    position: absolute;
+    left: 0;
+}
+
+/* Events Category
+-------------------------------------------------------------- */
+body.category-events #main #articles {
+    width: 680px;
+    margin: 0;
+}
+
+body.category-events #main #sidebar {
+    width: 240px;
+    margin-top: 46px;
+}
+
+
 
 /* Search Template
 -------------------------------------------------------------- */
@@ -792,21 +923,63 @@ body.single #content article.post .post-header {
     float: left;
 }
 
-body.single #content article.post .post-author {
+body.single #content article.post .post-header div {
+    width: 50%;
+    float: left;
+}
+
+body.single #content article.post .post-header .post-author {
     font-size: 1.2em;
     margin-bottom: 8px;
 }
 
-body.single #content article.post .post-author span {
+body.single #content article.post .post-header .post-author span {
     font-size: 0.8em;
     text-transform: uppercase;
     color: #999;
     margin: 3px 7px 0 0;
 }
 
-body.single #content article.post .post-date {
+body.single #content article.post .post-header .post-date {
     font-size: 1.1em;
     color: #999;
+}
+
+body.single #content article.post .post-social a {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    background: url('../images/social-icons.jpg') no-repeat 0 0;
+    display: block;
+    float: right;
+}
+
+body.single #content article.post .post-social a:hover {
+    background-position: 0 -30px;
+}
+
+body.single #content article.post .post-social a.twitter {
+    background-position: -30px 0;
+}
+
+body.single #content article.post .post-social a.twitter:hover {
+    background-position: -30px -30px;
+}
+
+body.single #content article.post .post-social a.email {
+    background-position: -60px 0;
+}
+
+body.single #content article.post .post-social a.email:hover {
+    background-position: -60px -30px;
+}
+
+body.single #content article.post .post-social a.print {
+    background-position: -90px 0;
+}
+
+body.single #content article.post .post-social a.print:hover {
+    background-position: -90px -30px;
 }
 
 body.single #content article.post .text-container p {
@@ -825,7 +998,7 @@ body.single #content ul li {
 }
 
 body.single #content .text-container {
-    width: 640px;
+    width: 100%;
     margin-bottom: 30px;
     float: left;
 }
@@ -842,7 +1015,7 @@ body.single #content .post-footer {
     float: left;
 }
 
-body.single #content .post-category,
+body.single #content .post-categories,
 body.single #content .post-tags {
     font-size: 1.3em;
     width: 100%;
@@ -850,17 +1023,17 @@ body.single #content .post-tags {
     float: left;
 }
 
-body.single #content .post-category ul,
+body.single #content .post-categories ul,
 body.single #content .post-tags ul {
     float: left;
 }
 
-body.single #content .post-category li,
+body.single #content .post-categories li,
 body.single #content .post-tags li {
     float: left;
 }
 
-body.single #content .post-category span,
+body.single #content .post-categories span,
 body.single #content .post-tags span {
     font-size: 0.8em;
     text-transform: uppercase;
@@ -875,18 +1048,39 @@ body.single #content .post-nav {
     float: left;
 }
 
-body.single #content .post-nav a {
-    font-family: 'Oswald-Light';
-    font-size: 1.6em;
-    text-transform: uppercase;
-}
-
-body.single #content .post-nav .next {
+body.single #content .post-nav .prev {
+    max-width: 30%;
     float: left;
 }
 
 body.single #content .post-nav .next {
+    max-width: 40%;
+    text-align: right;
     float: right;
+}
+
+body.single #content .post-nav a {
+    line-height: 1.3;
+    display: block;
+}
+
+body.single #content .post-nav a span.label {
+    font-family: 'Oswald-Light';
+    font-size: 1.6em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    display: block;
+}
+
+body.single #content .post-nav a span.title {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #777;
+    display: block;
+}
+
+body.single #content .post-nav a:hover span.title {
+    color: #6545E9;
 }
 
 
@@ -1040,6 +1234,46 @@ body.single #content #media .image-container figcaption {
     padding: 12px 0 0 0;
     text-align: center;
     display: block;
+}
+
+/* Events Single Post
+-------------------------------------------------------------- */
+body.single #content .column {
+    float: left;
+}
+
+body.single #content .column.post-info {
+    width: 400px;
+    padding-right: 20px;
+    margin-right: 20px;
+}
+
+body.single #content article.post.event .text-container p {
+    line-height: 1.4;
+}
+
+body.single #content .column.post-share,
+body.single #content .column.post-details {
+    width: 200px;
+    margin-bottom: 30px;
+}
+
+body.single #content .column h4 {
+    font-family: 'Oswald-Light';
+    font-size: 1.8em;
+    text-transform: uppercase;
+    border-bottom: solid 1px #E6E6E6;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+body.single #content .column.post-share .post-social {
+    width: 180px;
+    float: left;
+}
+
+body.single #content .column.post-share .post-social a {
+    margin: 0 15px 0 0;
 }
 
 
