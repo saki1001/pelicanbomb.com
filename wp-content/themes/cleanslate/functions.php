@@ -76,19 +76,95 @@
      wp_enqueue_script( 'jquery' );
  }
  add_action('wp_enqueue_scripts', 'register_jquery');
+ 
+ // CUSTOM ADMIN MENUS
+ // Add 'Read' to menu
+ function read_menu() {
+     add_submenu_page('edit.php', 'Read', 'Read', 'manage_options', 'edit.php?category_name=read' );
+ }
+ add_action('admin_menu', 'read_menu');
+ 
+ // Add 'See' to menu
+ function see_menu() {
+     add_submenu_page('edit.php', 'See', 'See', 'manage_options', 'edit.php?category_name=see' );
+ }
+ add_action('admin_menu', 'see_menu');
+ 
+ // Add 'Events' to menu
+ function events_menu() {
+     add_submenu_page('edit.php', 'Events', 'Events', 'manage_options', 'edit.php?category_name=events' );
+ }
+ add_action('admin_menu', 'events_menu');
+ 
+ // Add 'Spaces' to menu
+ function spaces_menu() {
+     add_submenu_page('edit.php', 'Spaces', 'Spaces', 'manage_options', 'edit.php?category_name=spaces' );
+ }
+ add_action('admin_menu', 'spaces_menu');
+
+
+ /* ADMIN COLUMNS
+ http://wp.tutsplus.com/tutorials/creative-coding/add-a-custom-column-in-posts-and-custom-post-types-admin-screen/
+ ----------------------------------------------------------- */
+ // GET FEATURED POST META
+ function get_featured_posts_meta($post_ID) {
+     $featured = (get_post_meta($post_ID, 'featured', true) === '1' ? 'Featured' : '');
+     $homeBanner = (get_post_meta($post_ID, 'home-banner', true) === '1' ? 'Home' : '');
+     
+     $featured_post_meta = array(
+        'featured' => $featured,
+        'home_banner' => $homeBanner,
+     );
+     
+     return $featured_post_meta;
+ }
+ 
+ // ADD NEW COLUMN  
+ function featured_posts_columns_head($defaults) {  
+     $defaults['featured_post'] = 'Featured?';  
+     return $defaults;  
+ }
+ 
+ // SHOW THE FEATURED IMAGE  
+ function featured_posts_columns_content($column_name, $post_ID) {  
+     if ($column_name == 'featured_post') {  
+         $post_featured_meta = get_featured_posts_meta($post_ID);  
+         
+         if( $post_featured_meta['featured'] === 'Featured' && $post_featured_meta['home_banner'] === 'Home' ) {
+             echo $post_featured_meta['featured'] . ', ';
+             echo $post_featured_meta['home_banner'];
+         } else {
+             echo $post_featured_meta['featured'];
+             echo $post_featured_meta['home_banner'];
+         }
+         
+     }  
+ }
+ 
+ // ADJUST COLUMN WIDTH
+ function featured_posts_column_width() {
+     echo '<style type="text/css">';
+     echo '.column-featured_post { width:10% !important; }';
+     echo '</style>';
+ }
+ 
+ add_action('admin_head', 'featured_posts_column_width');
+ add_filter('manage_posts_columns', 'featured_posts_columns_head');  
+ add_action('manage_posts_custom_column', 'featured_posts_columns_content', 10, 2);
+ 
 
 function get_first_attachment() {
     global $post;
-
+    
     $id = $post->ID;
     $attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'DESC', 'orderby' => 'menu_order ASC') );
     $tpl = get_bloginfo('template_url');
     // $nothing = $tpl.'/nothing.jpg';
     $nothing = '';
-
+    
     if ( empty($attachments) )
         return $nothing;
-
+        
         foreach ( $attachments as $id => $attachment )
             $link = wp_get_attachment_url($id);
         return $link;
