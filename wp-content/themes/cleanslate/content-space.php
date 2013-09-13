@@ -12,7 +12,7 @@
     <div class="column title">
         <p class="post-title"><?php the_title(); ?></p>
         <span class="tools">
-            <a href="#" class="addy" title="<?php the_title(); ?>" coord="<?php the_field('location-coordinates'); ?>" id="<?php the_field('location-address') . the_field('location-city'); ?>">+ VIEW ON THE MAP</a>
+            <a href="#" class="addy" title="<?php the_title(); ?>" data-coord="<?php the_field('location-coordinates'); ?>" data-address="<?php echo get_field('location-address') . ' ' . get_field('location-city'); ?>">+ VIEW ON THE MAP</a>
         </span>
     </div>
     
