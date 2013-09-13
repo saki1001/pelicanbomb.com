@@ -10,7 +10,7 @@
 <?php get_header(); ?>
     
     <?php
-        if( in_category('events') ) {
+        if( in_category('see') || in_category('events') ) {
             $template = 'content-event';
         } else {
             $template = 'content';
