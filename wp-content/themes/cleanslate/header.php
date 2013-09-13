@@ -61,10 +61,10 @@
         ?>
         
         <?php
-            if ( is_category('spaces') ) {
+            if ( is_category('spaces') || ( is_single() && ( in_category('events') || in_category('see') ) ) ) {
         ?>
             <script type="text/javascript"src="http://maps.google.com/maps/api/js?sensor=true"></script>
-            <script src="<?php echo get_template_directory_uri(); ?>/js/map.js" type="text/javascript"></script>
+            <script src="<?php echo get_template_directory_uri(); ?>/js/map-single.js" type="text/javascript"></script>
             <script src="<?php echo get_template_directory_uri(); ?>/js/googlemap-infobox.js" type="text/javascript"></script>
         <?php
             }
