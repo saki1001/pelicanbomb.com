@@ -19,14 +19,6 @@ function get_featured_posts($category, $number, $template) {
         $orderBy = 'date';
     }
     
-    // // Set Arguments
-    // $article_args = array(
-    //     'category_name' => $category,
-    //     'tag' => 'featured',
-    //     'posts_per_page' => $number,
-    //     'orderby'    => $orderBy
-    // );
-    
     $article_args = array(
         'category_name' => $category,
         'meta-key' => 'featured',
