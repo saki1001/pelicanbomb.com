@@ -2,24 +2,36 @@
     // Include this file to get varibles
     // And insert into the post
     
-    // Query Category Object
-    $categories = get_the_category();
+    $categoryName = '';
     
-    foreach( $categories as $category ) :
+    // Get the Category
+    if( is_category('events') ) {
+        $categoryName = get_field('event-type');
+    } else {
         
-        // For 'Read' and 'See'
-        // Only show child catergories
-        if( $category->category_nicename === 'read' || $category->category_nicename === 'see' ) {
+        // Query Category Object
+        $categories = get_the_category();
+        
+        foreach( $categories as $category ) :
             
-            if( $category->parent != 0 ) {
+            // For 'Read' and 'See'
+            // Only show child catergories
+            if( $category->category_nicename === 'read' || $category->category_nicename === 'see' ) {
+                
+                if( $category->parent != 0 ) {
+                    $categoryName = $category->cat_name;
+                }
+                
+            } else {
                 $categoryName = $category->cat_name;
             }
             
-        } else {
-            $categoryName = $category->cat_name;
-        }
+        endforeach;
         
-    endforeach;
+        if( in_category('see') && $categoryName === '' ) {
+            $categoryName = 'Exhibition';
+        }
+    }
     
     // Find post author
     $authorMeta = get_post_meta($post->ID, 'read-author');
