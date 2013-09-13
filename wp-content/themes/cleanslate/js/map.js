@@ -59,7 +59,7 @@ $j(document).ready(function() {
     //create infowindow that will just move around depending on click
     
     $j('.addy').each(function(){
-        neighborhoods.push($j(this).attr('coord'));
+        neighborhoods.push($j(this).attr('data-coord'));
     });
     
     for (var i = 0; i < neighborhoods.length; i++) {
@@ -107,7 +107,7 @@ $j(document).ready(function() {
     $j('.addy').click(function(){
         
         var ind =  $j(this).index('.addy');
-        var addy =  $j(this).attr('id');
+        var addy =  $j(this).attr('data-address');
         var title =  $j(this).attr('title');
         
         $j('html, body').animate({
