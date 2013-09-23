@@ -30,6 +30,7 @@
                 <?php the_title(); ?>
             </h4>
             <p class="post-date">
+                <?php echo ( in_category('read') ? 'By ' . $author . ' on ' : '' ); ?>
                 <?php echo $date; ?>
             </p>
             <p class="post-excerpt">
