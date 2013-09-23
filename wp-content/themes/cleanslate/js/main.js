@@ -45,7 +45,7 @@ $j(document).ready(function() {
             if (thisID === 's') {
                 submitSearch(value);
                 
-            } else if (thisID === 'n') {
+            } else if (thisID === 'uudyw-uudyw') {
                 submitNewsletter(value);
                 
             } else {
@@ -59,9 +59,11 @@ $j(document).ready(function() {
         
     };
     
-    $j('#n').bind('focus', clearOnFocus);
-    $j('#n').bind('keypress', submitOnEnter);
+    // Newsletter signup
+    $j('#uudyw-uudyw').bind('focus', clearOnFocus);
+    $j('#uudyw-uudyw').bind('keypress', submitOnEnter);
     
+    // Search form
     $j('#s').bind('focus', clearOnFocus);
     $j('#s').bind('keypress', submitOnEnter);
     
