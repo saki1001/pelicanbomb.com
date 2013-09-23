@@ -52,6 +52,15 @@
             </script>
             <!-- <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr.js" type="text/javascript"></script> -->
             <script src="<?php echo get_template_directory_uri(); ?>/js/main.js" type="text/javascript"></script>
+        
+        <?php
+            if ( is_home() || is_page() ) {
+        ?>
+            <script src="<?php echo get_template_directory_uri(); ?>/js/get-products.js" type="text/javascript"></script>
+        <?php
+            }
+        ?>
+        
         <?php
             if ( is_single() ) {
         ?>
