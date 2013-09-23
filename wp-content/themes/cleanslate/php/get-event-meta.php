@@ -2,7 +2,9 @@
     // Set date
     $startDate = date('F j, Y', strtotime(get_field('start-date')));
     
-    if( get_field('end-date') ) {
+    if( !get_field('start-date') ) {
+        $date = get_the_date();
+    } elseif( get_field('end-date') ) {
         $endDate = date('F j, Y', strtotime(get_field('end-date')));
         
         $date = $startDate . ' - ' . $endDate;
