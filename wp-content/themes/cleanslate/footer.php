@@ -18,14 +18,20 @@
     <div class="footer-wrapper">
         
         <div class="column links">
-            <h3>Links</h3>
-            <?php wp_nav_menu( array( 'theme_location' => 'footer-pages' ) ); ?>
-            <?php wp_nav_menu( array( 'theme_location' => 'footer-cats' ) ); ?>
+            <div class="links-group">
+                <h3>More Info</h3>
+                <?php wp_nav_menu( array( 'theme_location' => 'footer-pages' ) ); ?>
+            </div>
+            
+            <div class="links-group">
+                <h3>Resources</h3>
+                <?php wp_nav_menu( array( 'theme_location' => 'footer-cats' ) ); ?>
+            </div>
         </div>
         
         <div class="column newsletter">
-            <form action="#" method="post" id="newsletter-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-                <input type="email" value="Enter your email" name="EMAIL" class="email" id="n" placeholder="Enter your email" required>
+            <form action="http://dumaine.createsend.com/t/y/s/uudyw/" method="post" id="newsletter-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+                <input type="email" value="Enter your email" name="cm-uudyw-uudyw" class="email" id="uudyw-uudyw" placeholder="Enter your email" required>
                 <input type="submit" id="newsletter-form-submit" name="subscribe" value="Sign Up" />
             </form>
             <p>Sign up to get updates from Pelican Bomb.</p>
