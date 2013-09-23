@@ -125,7 +125,7 @@ header .wrapper {
 }
 
 body.home header .wrapper {
-    height: 104px;
+    height: 90px;
     border: none;
 }
 
@@ -140,9 +140,9 @@ header #logo {
 }
 
 body.home header #logo {
-    width: 568px;
-    height: 104px;
-    background: url('../images/logo-568x134.png') no-repeat 0 0;
+    width: 497px;
+    height: 90px;
+    background: url('../images/PBcolor.png') no-repeat 0 0;
     background-size: 100%;
     left: -5px;
     top: 0;
@@ -162,8 +162,8 @@ header h1 a {
 }
 
 body.home header h1 a {
-    width: 568px;
-    height: 104px;
+    width: 497px;
+    height: 90px;
     display: block;
     width: 100%;
 }
@@ -302,7 +302,7 @@ body.home #content {
 
 body.home #primary {
     width: 920px;
-    height: 500px;
+    height: 400px;
     padding-top: 15px;
     margin-bottom: 30px;
     position: relative;
@@ -316,35 +316,35 @@ body.home #primary:after {
     position: absolute;
     left: 0;
     top: 15px;
-    margin-left: -45px;
-    border-width: 35px 45px;
+    margin-left: -42px;
+    border-width: 32px 42px;
     border-style: solid;
     border-color: #fff transparent transparent transparent;
 }
 
 body.home #primary .angle {
-    background: url('../images/logo-568x134.png') no-repeat 0 -97px;
-    width: 50px;
-    height: 40px;
+    background: url('../images/PBColor.png') no-repeat 0 -84px;
+    width: 38px;
+    height: 35px;
     position: absolute;
-    top: -7px;
+    top: -6px;
     left: -5px;
     z-index: 50;
 }
 
 body.home #primary .column {
     width: 306px;
-    height: 500px;
+    height: 400px;
     overflow: hidden;
     position: relative;
     float: left;
 }
 
 body.home #primary .column img {
-    width: 825px;
-    height: 500px;
+    width: 600px;
+    height: 400px;
     position: absolute;
-    left: -153px;
+    left: -150px;
 }
 
 body.home #primary .column.read {
@@ -363,7 +363,7 @@ body.home #primary .column.see {
 
 body.home #primary .column a {
     width: 306px;
-    height: 500px;
+    height: 400px;
     display: block;
 }
 
@@ -374,7 +374,7 @@ body.home #primary .column a:hover img {
 /* From http://scottgale.com/css-vertical-text/2010/03/01/ */
 body.home #primary .column a .title h2 {
     font-family: 'Oswald-Light', Arial, sans-serif;
-    font-size: 12em;
+    font-size: 11em;
     text-transform: uppercase;
     color: #F4F4F4;
     writing-mode:tb-rl;
@@ -383,7 +383,7 @@ body.home #primary .column a .title h2 {
          -o-transform:rotate(-90deg);
     white-space:nowrap;
     position: absolute;
-    bottom: 26%;
+    bottom: 24%;
     margin:0;
     padding: 0;
     z-index: 1000;
@@ -407,6 +407,16 @@ body.home #secondary .featured {
     margin-right: 12px;
     margin-bottom: 20px;
     float: left;
+}
+
+body.home #secondary .featured.products .loading {
+    width: 100%;
+    height: 150px;
+    background: url('../images/loading.gif') no-repeat center center;
+}
+
+body.home #secondary .featured.products .preview {
+    display: none;
 }
 
 /* Article Date Box
@@ -442,11 +452,18 @@ article.related a {
     display: block;
 }
 
-article.related .post-date {
+article.related .post-category {
     font-size: 1.1em;
     line-height: 1.3;
     text-transform: uppercase;
     color: #999;
+    margin-bottom: 5px;
+}
+
+article.related .post-date,
+article.related .post-author {
+    font-size: 1.1em;
+    line-height: 1.3;
     margin-bottom: 5px;
 }
 
@@ -476,6 +493,11 @@ article.preview {
     float: left;
 }
 
+#features article.preview {
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
 article.preview a {
     background-color: #331B96;
     overflow: hidden;
@@ -496,6 +518,10 @@ article.preview.feature a .caption {
     margin: 20px;
 }
 
+#features article.preview a .caption {
+    margin: 15px;
+}
+
 article.preview a:hover .caption {
     display: block;
 }
@@ -508,6 +534,10 @@ article.preview a .post-category {
 
 article.preview.feature a .post-category {
     margin-bottom: 15px;
+}
+
+#features article.preview a .post-category {
+    margin-bottom: 10px;
 }
 
 article.preview.feature a .post-category {
@@ -526,6 +556,13 @@ article.preview.feature a .post-author {
     font-size: 1.2em;
 }
 
+article.preview.product a .post-description {
+    font-size: 1.1em;
+    max-height: 44px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
 article.preview a .post-title {
     font-size: 1.3em;
     font-style: italic;
@@ -536,6 +573,14 @@ article.preview a .post-title {
 article.preview.feature a .post-title {
     font-size: 1.5em;
     max-height: 40px;
+}
+
+article.preview.product a .post-title {
+    max-height: 15px;
+}
+
+article.preview.feature.product a .post-title {
+    max-height: 20px;
 }
 
 article.preview a .post-date,
@@ -588,20 +633,39 @@ article.preview.feature a .caption {
     height: 130px;
 }
 
+/*Height and Width*/
+/*For Featured Top Bar*/
+#features article.preview:last-child {
+    margin: 0;
+}
+
+#features article.preview,
+#features article.preview a,
+#features article.preview a .post-thumb,
+#features article.preview a .post-thumb img {
+    width: 172px;
+    height: 136px;
+}
+
+#features article.preview a .caption {
+    width: 142px;
+    height: 106px;
+}
+
 /* Article Summary
 -------------------------------------------------------------- */
 article.summary {
-    width: 640px;
+    width: 100%;
     height: 160px;
-    padding: 0 10px 20px 0;
+    padding-bottom: 20px;
     margin: 0 30px 25px 0;
-    border-bottom: solid 1px #999;
+    border-bottom: solid 1px #CCCCCC;
     text-align: left;
     float: left;
 }
 
 article.summary a {
-    width: 640px;
+    width: 100%;
     height: 160px;
     display: block;
 }
@@ -611,11 +675,16 @@ article.summary a:hover img {
 }
 
 article.summary a .caption {
-    width: 420px;
+    width: 400px;
     line-height: 1.3;
-    margin: 15px 0 20px 20px;
+    margin: 15px 20px 20px 20px;
     overflow: hidden;
     float: left;
+}
+
+body.category-read article.summary a .caption,
+body.category-see article.summary a .caption {
+    width: 480px;
 }
 
 article.summary a .post-category {
@@ -663,7 +732,7 @@ article.summary a .post-thumb {
 
 /* Page Template
 -------------------------------------------------------------- */
-body.page #content article {
+body.page #content article.page {
     float: left;
 }
 
@@ -717,6 +786,16 @@ body.page #sidebar.masthead p {
     margin-bottom: 20px;
 }
 
+body.page #sidebar .featured-post .loading {
+    width: 100%;
+    height: 170px;
+    background: url('../images/loading.gif') no-repeat center center;
+}
+
+body.page #sidebar .featured-post .preview {
+    display: none;
+}
+
 
 /* Category/Tag Template
 -------------------------------------------------------------- */
@@ -728,26 +807,34 @@ body.archive.tag #main #content {
 
 body.category #main #articles,
 body.archive.tag #main #articles {
-    width: 824px;
-    margin-right: 10px;
+    width: 640px;
+    margin-right: 40px;
     float: left;
 }
 
 body.category #main #sidebar,
 body.archive.tag #main #sidebar {
-    width: 85px;
-}
-
-/* See Category
--------------------------------------------------------------- */
-body.category-see #main #articles {
-    width: 680px;
-    margin: 0;
-}
-
-body.category-see #main #sidebar {
     width: 240px;
 }
+
+/* Read/See Category
+-------------------------------------------------------------- */
+body.category #main #content #features {
+    margin-bottom: 20px;
+    float: left;
+}
+
+body.category-read #main #articles,
+body.category-see #main #articles {
+    width: 720px;
+    margin-right: 15px;
+}
+
+body.category-read #main #sidebar,
+body.category-see #main #sidebar {
+    width: 185px;
+}
+
 
 /* Spaces Category
 -------------------------------------------------------------- */
@@ -839,18 +926,6 @@ body.category-spaces #spaces .space .details span.label {
     position: absolute;
     left: 0;
 }
-
-/* Events Category
--------------------------------------------------------------- */
-body.category-events #main #articles {
-    width: 680px;
-    margin: 0;
-}
-
-body.category-events #main #sidebar {
-    width: 240px;
-}
-
 
 
 /* Search Template
@@ -1393,11 +1468,18 @@ body.single #content article.post.event .column.post-details #mapBox p {
     margin: 0 auto;
 }
 
-#footer .links .menu-footer-pages-container,
-#footer .links .menu-footer-categories-container {
+#footer .links .links-group {
     width: 100px;
     margin-right: 20px;
     float: left;
+}
+
+#footer .links h3 {
+    font-family: 'Oswald-Light', Arial, sans-serif;
+    font-size: 2.1em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    padding-bottom: 15px;
 }
 
 #footer .links .menu li {
@@ -1405,17 +1487,8 @@ body.single #content article.post.event .column.post-details #mapBox p {
 }
 
 #footer .links .menu a {
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: #F4F4F4;
-}
-
-#footer .links h3 {
-    width: 100%;
-    font-family: 'Oswald-Light', Arial, sans-serif;
-    font-size: 2.2em;
-    line-height: 1.2;
-    text-transform: uppercase;
-    padding-bottom: 15px;
 }
 
 footer .column.links {
