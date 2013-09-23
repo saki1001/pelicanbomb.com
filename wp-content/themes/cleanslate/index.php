@@ -69,7 +69,11 @@
                 <section class="featured products">
                     <h3>Collect from The Drop</h3>
                     
-                    <p>Content will be filled in dynamically from Big Cartel site.</p>
+                    <?php
+                        // Content will be filled in dynamically from Big Cartel site.
+                    ?>
+                    
+                    <div class="loading"></div>
                     
                 </section>
                 
