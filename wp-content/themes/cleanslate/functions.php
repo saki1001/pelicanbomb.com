@@ -106,6 +106,51 @@
  /* ADMIN COLUMNS
  http://wp.tutsplus.com/tutorials/creative-coding/add-a-custom-column-in-posts-and-custom-post-types-admin-screen/
  ----------------------------------------------------------- */
+ 
+ /* FEATURED IMAGE COLUMN
+ ----------------------------------------------------------- */
+ 
+ // GET FEATURED IMAGE  
+ function ST4_get_featured_image($post_ID) {  
+     $post_thumbnail_id = get_post_thumbnail_id($post_ID);  
+     if ($post_thumbnail_id) {  
+         $post_thumbnail_img = wp_get_attachment_image_src($post_thumbnail_id, 'small-thumbnail');  
+         return $post_thumbnail_img[0];  
+     }  
+ }
+ 
+ // ADD NEW COLUMN  
+ function ST4_columns_head($defaults) {  
+     $defaults['featured_image'] = 'Thumbnail';  
+     return $defaults;  
+ }  
+ 
+ // SHOW THE FEATURED IMAGE  
+ function ST4_columns_content($column_name, $post_ID) {  
+     if ($column_name == 'featured_image') {  
+         $post_featured_image = ST4_get_featured_image($post_ID);  
+         if ($post_featured_image) {  
+             echo '<img src="' . $post_featured_image . '" width="50" height="50" />';  
+         }  
+     }  
+ }
+ 
+ // ADJUST COLUMN WIDTH
+ function ST4_columns_width() {
+     echo '<style type="text/css">';
+     echo '.column-featured_image { width:10% !important; }';
+     echo '</style>';
+ }
+ 
+ add_action('admin_head', 'ST4_columns_width');
+ add_filter('manage_posts_columns', 'ST4_columns_head');  
+ add_action('manage_posts_custom_column', 'ST4_columns_content', 10, 2);
+ 
+ 
+ 
+ /* FEATURED POST COLUMN
+ ----------------------------------------------------------- */
+ 
  // GET FEATURED POST META
  function get_featured_posts_meta($post_ID) {
      $featured = (get_post_meta($post_ID, 'featured', true) === '1' ? 'Featured' : '');
@@ -125,7 +170,7 @@
      return $defaults;  
  }
  
- // SHOW THE FEATURED IMAGE  
+ // SHOW THE FEATURED OPTION
  function featured_posts_columns_content($column_name, $post_ID) {  
      if ($column_name == 'featured_post') {  
          $post_featured_meta = get_featured_posts_meta($post_ID);  
@@ -170,8 +215,12 @@ function get_first_attachment() {
         return $link;
 }
 
-function the_excerpt_max_charlength($charlength) {
-    $excerpt = get_the_excerpt();
+function the_excerpt_max_charlength($charlength, $excerpt) {
+    
+    if( !$excerpt ){
+        $excerpt = get_the_excerpt();
+    }
+    
     $charlength++;
     
     if ( mb_strlen( $excerpt ) > $charlength ) {
@@ -246,6 +295,9 @@ add_theme_support( 'post-thumbnails' );
 
 // Adding Custom Thumbnail Size;
 add_image_size( 'feature-thumbnail', 240, 170, true );
+
+// Adding Custom Thumbnail Size;
+add_image_size( 'small-thumbnail', 115, 115, true );
 
 // Prevent from adding link to inserted imgaes
 update_option('image_default_link_type','none');
