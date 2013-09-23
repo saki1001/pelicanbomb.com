@@ -72,10 +72,16 @@
                 <li><?php echo $date; ?></li>
             </ul>
             
+        <?php
+            if( $time ) {
+        ?>
             <ul class="time">
                 <li class="label">Time</li>
                 <li><?php echo $time; ?></li>
             </ul>
+        <?php
+            }
+        ?>
             
             <ul class="addy" data-coord="" data-address="<?php echo $address;?>">
                 <li class="label">Location</li>
