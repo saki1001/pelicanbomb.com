@@ -11,27 +11,32 @@
     
     <section id="content">
         
+        <?php
+            // Query Category Object
+            $cat_obj = $wp_query->get_queried_object();
+            
+            if ( is_category('read') || $cat_obj->parent === get_cat_ID('read') ) :
+        ?>
+            <div id="features">
+                <?php echo get_featured_posts('read', 5, 'content-preview'); ?>
+            </div>
+            
+        <?php
+            endif;
+        ?>
+        
         <h2>
             <?php wp_title(''); ?>
         </h2>
         
         <?php
-            // Query Category Object
-            $cat_obj = $wp_query->get_queried_object();
-            
-            if ( is_category('see') || $cat_obj->parent === get_cat_ID('see') ) :
-                $template = 'content-summary';
-            else :
-                $template = 'content-preview';
-            endif;
-            
             if ( have_posts() ) :
         ?>
                 <div id="articles">
                 
         <?php
                 while ( have_posts() ) : the_post();
-                    get_template_part( $template, get_post_format() );
+                    get_template_part( 'content-summary', get_post_format() );
                 endwhile;
         ?>
                 
