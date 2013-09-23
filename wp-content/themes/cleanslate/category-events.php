@@ -36,8 +36,6 @@
             $thisTime = mktime(0, 0, 0, $thisMonth, date('d'), date('Y'));
         ?>
         
-        <?php get_sidebar(); ?>
-        
         <?php
             if ( $events_query->have_posts() ) :
         ?>
@@ -76,6 +74,8 @@
                 
             endif;
         ?>
+        
+        <?php get_sidebar(); ?>
         
         <?php get_template_part( 'content-pagination' ); ?>
         
