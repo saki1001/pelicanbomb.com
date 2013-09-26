@@ -35,8 +35,14 @@
                 <div id="articles">
                 
         <?php
+                if ( is_category('press') ){
+                  $template = 'content-preview';
+                } else {
+                  $template = 'content-summary';
+                }
+                
                 while ( have_posts() ) : the_post();
-                    get_template_part( 'content-summary', get_post_format() );
+                    get_template_part( $template, get_post_format() );
                 endwhile;
         ?>
                 
