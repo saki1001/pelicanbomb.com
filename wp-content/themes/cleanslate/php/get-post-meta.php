@@ -41,4 +41,10 @@
     else :
         $author = get_the_author();
     endif;
+    
+    if( in_category('press') ){
+        $permalink = get_field('press-link');
+    } else {
+        $permalink = get_permalink();
+    }
 ?>
