@@ -101,6 +101,12 @@
      add_submenu_page('edit.php', 'Spaces', 'Spaces', 'manage_options', 'edit.php?category_name=spaces' );
  }
  add_action('admin_menu', 'spaces_menu');
+ 
+ // Add 'Press' to menu
+ function press_menu() {
+     add_submenu_page('edit.php', 'Press', 'Press', 'manage_options', 'edit.php?category_name=press' );
+ }
+ add_action('admin_menu', 'press_menu');
 
 
  /* ADMIN COLUMNS
@@ -232,7 +238,7 @@ function the_excerpt_max_charlength($charlength, $excerpt) {
         } else {
             echo $subex;
         }
-        echo '[...]';
+        echo '...';
     } else {
         echo $excerpt;
     }
