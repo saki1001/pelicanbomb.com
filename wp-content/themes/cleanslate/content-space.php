@@ -20,7 +20,7 @@
         <p><?php the_field('location-address'); ?></p>
         <p><?php the_field('location-city') + ' ' + the_field('location-zip'); ?></p>
         <p>
-            <a href="<?php the_field('gallery-website'); ?>"><?php the_field('gallery-website'); ?></a>
+            <a href="<?php the_field('gallery-website'); ?>" target="_blank"><?php the_field('gallery-website'); ?></a>
         </p>
     </div>
     
