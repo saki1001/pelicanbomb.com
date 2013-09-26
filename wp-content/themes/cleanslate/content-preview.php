@@ -7,16 +7,25 @@
  */
 ?>
 
+<?php include('php/get-event-meta.php'); ?>
 <?php include('php/get-post-meta.php'); ?>
 
+<?php
+   if( in_category('press') ){
+      $target = "_blank";
+   } else {
+      $target="_self";
+   }
+?>
+
 <article class="preview">
-    <a href="<?php the_permalink(); ?>">
+    <a href="<?php echo $permalink; ?>" target="<?php echo $target; ?>">
         <div class="caption">
             <p class="post-category">
                 <?php echo $categoryName; ?>
             </p>
             <p class="post-date">
-                <?php echo get_the_date(); ?>
+                <?php echo $date; ?>
             </p>
             <h4 class="post-title">
                 <?php the_title(); ?>
