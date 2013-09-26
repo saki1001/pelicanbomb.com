@@ -68,7 +68,7 @@
             <h4>Details</h4>
             
             <ul class="date">
-                <li class="label">Date</li>
+                <li class="label">Date:</li>
                 <li><?php echo $date; ?></li>
             </ul>
             
@@ -76,7 +76,7 @@
             if( $time ) {
         ?>
             <ul class="time">
-                <li class="label">Time</li>
+                <li class="label">Time:</li>
                 <li><?php echo $time; ?></li>
             </ul>
         <?php
@@ -84,7 +84,7 @@
         ?>
             
             <ul class="addy" data-coord="" data-address="<?php echo $address;?>">
-                <li class="label">Location</li>
+                <li class="label">Place:</li>
                 <li class="address">
                     <?php echo $address; ?>
                 </li>
