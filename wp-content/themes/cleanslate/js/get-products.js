@@ -34,10 +34,32 @@ var productsFeed = function(options, limit) {
 // Show only up to the limit number of products
 var showProductsFeed = function(feeds, options, limit) {
     
+    var products = new Array();
+    
+    // Append products to page
+    var appendProducts = function () {
+        for (var i=0; i<=products.length; i++) {
+            // Append elements (up to limit)
+            if( i < limit ) {
+                $j(selector).append(products[i]);
+                
+            // Hide loader and show elements
+            } else if ( i === limit ) {
+                $j(selector + ' .loading').hide();
+                $j(selector + ' .preview').fadeIn();
+                
+            } else {
+                // do nothing
+            }
+        }
+    };
+    
+    // Loop through API results
     for (var i=0; i<feeds.length; i++) {
         
         var categories = feeds[i]['categories'][0];
         
+        // Filter by category
         if( categories != undefined && categories['name'] === 'BUILD-A-BOX' ) {
             
             var templateURL = templateDirectoryUrl + '/php/get-product-template.php';
@@ -58,23 +80,16 @@ var showProductsFeed = function(feeds, options, limit) {
                       'height' : feeds[i]['images'][0]['height']
                   }
               },
+              dataType: 'html',
               success: function( html ) {
                 
-                // Append elements (up to limit)
-                if( $j(selector + ' .preview').length < limit ) {
-                    $j(selector).append(html);
-                    
-                // Hide loader and show elements
-                } else if ( $j(selector + ' .preview').length = limit ) {
-                    $j(selector + ' .loading').hide();
-                    $j(selector + ' .preview').fadeIn();
-                    
-                } else {
-                    // do nothing
-                }
+                products.push(html);
                 
-              },
-              dataType: 'html'
+                // Send to append once reaches limit
+                if( products.length === limit ){
+                    appendProducts();
+                }
+              }
             });
             
         } // end if
@@ -118,7 +133,7 @@ $j(document).ready(function() {
         
         selector = '.featured.products';
         
-        getProducts('preview', 190, 150, 6);
+        getProducts('preview', 190, 150, 3);
     }
     
     if( $j('body.page').length > 0 ) {
