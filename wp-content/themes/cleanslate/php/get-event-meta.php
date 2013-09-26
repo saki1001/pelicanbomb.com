@@ -1,6 +1,10 @@
 <?php
     // Set date
-    $startDate = date('F j, Y', strtotime(get_field('start-date')));
+    if( in_category('press') ) {
+        $startDate = date('F j, Y', strtotime(get_field('press-date')));
+    } else {
+        $startDate = date('F j, Y', strtotime(get_field('start-date')));
+    }
     
     if( !get_field('start-date') ) {
         $date = get_the_date();
