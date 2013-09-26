@@ -46,15 +46,12 @@
             <p class="post-category">
                 <?php echo $categoryName; ?>
             </p>
+            <p class="post-date">
+                <?php echo $date; ?>
+            </p>
             <h4 class="post-title">
                 <?php echo $title; ?>
             </h4>
-            <p class="post-description">
-                <?php
-                    //echo $description;
-                    the_excerpt_max_charlength(150, $description);
-                ?>
-            </p>
             <p class="post-author">
                 Price: $<?php echo $price; ?>
             </p>
