@@ -8,6 +8,7 @@
 ?>
 
 <?php include('php/get-post-meta.php'); ?>
+<?php include('php/get-event-meta.php'); ?>
 
 <article class="preview feature">
     <a href="<?php the_permalink(); ?>">
@@ -16,7 +17,7 @@
                 <?php echo $categoryName; ?>
             </p>
             <p class="post-date">
-                <?php echo get_the_date(); ?>
+                <?php echo $date; ?>
             </p>
             <h4 class="post-title">
                 <?php the_title(); ?>
