@@ -15,7 +15,20 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
-    <?php include('content-slideshow.php'); ?>
+<?php
+      // Include Video or Slideshow
+      if( get_field('read-video') ) {
+?>
+      <div id="media" class="video">
+<?php
+            the_field('read-video');
+?>
+      </div>
+<?php
+      } else {
+            include('content-slideshow.php');
+      }
+?>
     
     <div class="post-header">
         <div>
