@@ -34,11 +34,20 @@
         </li>
         
     <?php
+        
+        
+        if( get_cat_ID('press') === $parentCategoryID ) {
+            $order = 'DESC';
+        } else {
+           $order = 'ASC';
+        }
+        
         // Get categories, exclude misc. Read categories
         $args = array(
             'child_of' => $parentCategoryID,
             'exclude' => '7,10,11,12,13,14,15,19,20',
-            'hide_empty'  => 1
+            'hide_empty'  => 1,
+            'order' => $order
         );
         
         $childCategories = get_categories( $args );
