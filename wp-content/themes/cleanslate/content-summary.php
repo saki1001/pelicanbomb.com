@@ -34,7 +34,7 @@
                 <?php echo $date; ?>
             </p>
             <p class="post-excerpt">
-                <?php echo the_excerpt_max_charlength(200); ?>
+                <?php echo the_excerpt_max_charlength(200, get_the_excerpt()); ?>
             </p>
         </div>
     </a>
