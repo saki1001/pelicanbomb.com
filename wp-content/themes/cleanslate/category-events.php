@@ -40,18 +40,18 @@
         ?>
                 <div id="articles">
         <?php
-                if( $paged === 1 ) {
-        ?>
-                <h2><?php echo date('F', $thisTime); ?></h2>
-        <?php
-                }
-                
                 while ( $events_query->have_posts() ) : $events_query->the_post();
                     
                     $newTime = strtotime(get_field('start-date'));
                     $newMonth = date('m', $newTime);
                     
-                    if( $newMonth != $thisMonth) {
+                    if( $events_query->current_post === 0 && $newMonth === $thisMonth ) {
+        ?>
+                    <h2><?php echo date('F', $thisTime); ?></h2>
+        <?php
+                    }
+                    
+                    if( $newMonth != $thisMonth ) {
         ?>
                         <h2><?php echo date('F', $newTime); ?></h2>
         <?php
