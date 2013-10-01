@@ -36,7 +36,9 @@ function get_thumbnail_custom($postId, $thumbType) {
         endif;
     else :
         
-        $image = '';
+        $url = get_template_directory_uri() . '/images/default-image-' . $thumbType . '.jpg';
+        
+        $image = array($url,get_option( $thumbType . '_size_w' ),get_option( $thumbType . '_size_h' ));
         
     endif;
     
