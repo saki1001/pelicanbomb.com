@@ -23,26 +23,40 @@
     function insert_attachments( $attachments ) {
         global $post;
         
-        foreach($attachments as $attachment) {
-            // medium images set to be max 500px tall
-            $image = wp_get_attachment_image( $attachment->ID, 'medium' );
+        if ( count($attachments) > 0 ) :
+            
+            foreach($attachments as $attachment) :
+                // medium images set to be max 500px tall
+                $image = wp_get_attachment_image( $attachment->ID, 'medium' );
+        ?>
+            <div class="image-container">
+                <figure>
+                    <?php
+                        // Insert image description
+                        echo $image;
+                    ?>
+                </figure>
+                <figcaption>
+                    <?php
+                        // Insert image description
+                        echo html_entity_decode($attachment->post_content);
+                    ?>
+                </figcaption>
+            </div>
+    <?php
+            endforeach;
+        else :
     ?>
-        <div class="image-container">
-            <figure>
-                <?php
-                    // Insert image description
-                    echo $image;
-                ?>
-            </figure>
-            <figcaption>
-                <?php
-                    // Insert image description
-                    echo $attachment->post_content;
-                ?>
-            </figcaption>
-        </div>
-<?php
-        }
+            <div class="image-container">
+                <figure>
+                    <?php
+                        $thumb = get_thumbnail_custom($post->ID, 'medium');
+                    ?>
+                    <img src="<?php echo $thumb[0]; ?>" width="<?php echo $thumb[1]; ?>" height="<?php echo $thumb[2]; ?>" alt="<?php the_title(); ?>" />
+                </figure>
+            </div>
+    <?php
+        endif;
     }
 ?>
 
@@ -75,7 +89,7 @@
     
     <?php
         // For Single Image
-        elseif ( count($attachments) === 1 ) :
+        else :
     ?>
     
     <div class="border left"></div>
