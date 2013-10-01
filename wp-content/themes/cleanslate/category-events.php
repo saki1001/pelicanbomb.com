@@ -25,6 +25,7 @@
                 //         'compare' => 'BETWEEN',
                 //     )
                 // ),
+                'post_status' => 'publish',
                 'orderby'    => 'meta-value',
                 'order' => 'DESC'
             );
@@ -34,9 +35,7 @@
             
             $thisMonth = date('m');
             $thisTime = mktime(0, 0, 0, $thisMonth, date('d'), date('Y'));
-        ?>
-        
-        <?php
+            
             if ( $events_query->have_posts() ) :
         ?>
                 <div id="articles">
@@ -58,7 +57,6 @@
         <?php
                         $thisMonth = $newMonth;
                     }
-                    
                     
                     get_template_part( 'content-summary', get_post_format() );
                 endwhile;
