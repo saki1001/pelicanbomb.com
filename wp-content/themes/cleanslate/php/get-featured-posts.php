@@ -29,6 +29,7 @@ function get_featured_posts($category, $number, $template) {
                 'compare' => 'IN',
             )
         ),
+        'post_status' => array( 'publish', 'draft' ),
         'posts_per_page' => $number,
         'orderby'    => $orderBy
     );
