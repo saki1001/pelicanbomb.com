@@ -94,6 +94,16 @@ a, a:link, a:visited {
     text-decoration: none;
 }
 
+#main #content .text-container a,
+#main #content .text-container a:link,
+#main #content .text-container a:visited,
+#main #content .post-footer a,
+#main #content .post-footer a:link,
+#main #content .post-footer a:visited {
+    color: #6545E9;
+    text-decoration: none;
+}
+
 a:active, a:hover {
     color: #6545E9;
     text-decoration: none;
@@ -544,12 +554,17 @@ article.preview.feature a .post-category {
     margin-bottom: 10px;
 }
 
+article.preview.product a .post-category {
+    margin-bottom: 20px;
+}
+
 article.preview.feature a .post-category {
     font-size: 1em;
 }
 
 article.preview a .post-date,
-article.preview a .post-author {
+article.preview a .post-author,
+article.preview a .post-price {
     font-size: 1.1em;
     max-height: 15px;
     overflow: hidden;
@@ -558,6 +573,10 @@ article.preview a .post-author {
 article.preview.feature a .post-date,
 article.preview.feature a .post-author {
     font-size: 1.2em;
+}
+
+article.preview.product a .post-author {
+  margin-bottom: 5px;
 }
 
 article.preview.product a .post-description {
@@ -817,6 +836,7 @@ body.archive.tag #main #sidebar {
 /* Read/See Category
 -------------------------------------------------------------- */
 body.category #main #content #features {
+    width: 100%;
     margin-bottom: 20px;
     float: left;
 }
@@ -1165,6 +1185,7 @@ body.single #content .post-nav a {
 body.single #content .post-nav a span.label {
     font-family: 'Oswald-Light';
     font-size: 1.6em;
+    color: #333333;
     text-transform: uppercase;
     margin-bottom: 5px;
     display: block;
