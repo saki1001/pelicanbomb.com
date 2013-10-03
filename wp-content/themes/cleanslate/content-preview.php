@@ -10,14 +10,6 @@
 <?php include('php/get-event-meta.php'); ?>
 <?php include('php/get-post-meta.php'); ?>
 
-<?php
-   if( in_category('press') ){
-      $target = "_blank";
-   } else {
-      $target="_self";
-   }
-?>
-
 <article class="preview">
     <a href="<?php echo $permalink; ?>" target="<?php echo $target; ?>">
         <div class="caption">
