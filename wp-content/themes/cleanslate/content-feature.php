@@ -22,9 +22,15 @@
             <h4 class="post-title">
                 <?php the_title(); ?>
             </h4>
+        <?php
+            if( !in_category('see') ) {
+        ?>
             <p class="post-author">
                 By <?php echo $author; ?>
             </p>
+        <?php
+            }
+        ?>
         </div>
         
         <figure class="post-thumb">
