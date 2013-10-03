@@ -21,7 +21,7 @@
     <div class="post-main">
         
         <div class="column post-info">
-            <h4>Event Info</h4>
+            <h4><?php echo $label; ?> Info</h4>
             <div class="text-container">
                 <?php the_content(); ?>
             </div>
