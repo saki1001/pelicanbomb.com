@@ -24,6 +24,7 @@ function get_home_image($category, $size) {
                 'compare' => 'IN',
             )
         ),
+        'post_status' => array( 'publish', 'draft' ),
         'posts_per_page' => '1',
         'orderby'    => 'rand'
     );
