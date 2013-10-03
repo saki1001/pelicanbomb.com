@@ -84,6 +84,12 @@
  }
  add_action('admin_menu', 'read_menu');
  
+ // Add 'Collect' to menu
+ function collect_menu() {
+     add_submenu_page('edit.php', 'Collect', 'Collect', 'manage_options', 'edit.php?category_name=collect' );
+ }
+ add_action('admin_menu', 'collect_menu');
+ 
  // Add 'See' to menu
  function see_menu() {
      add_submenu_page('edit.php', 'See', 'See', 'manage_options', 'edit.php?category_name=see' );
