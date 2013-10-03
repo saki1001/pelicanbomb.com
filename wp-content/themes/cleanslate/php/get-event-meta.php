@@ -1,4 +1,12 @@
 <?php
+    
+    // Set label
+    if( in_category('see') ) {
+        $label = 'Exhibition';
+    } else {
+        $label = 'Event';
+    }
+    
     // Set date
     if( in_category('press') ) {
         $startDate = date('F j, Y', strtotime(get_field('press-date')));
