@@ -58,9 +58,10 @@ var showProductsFeed = function(feeds, options, limit) {
     for (var i=0; i<feeds.length; i++) {
         
         var categories = feeds[i]['categories'][0];
+        var artists = feeds[i]['artists'][0];
         
         // Filter by category
-        if( categories != undefined && categories['name'] === 'BUILD-A-BOX' ) {
+        if( categories != undefined && categories['name'] === 'FEATURED' ) {
             
             var templateURL = templateDirectoryUrl + '/php/get-product-template.php';
             
@@ -71,6 +72,7 @@ var showProductsFeed = function(feeds, options, limit) {
                   'category' : 'The Drop',
                   'date' : feeds[i]['created_at'],
                   'title' : feeds[i]['name'],
+                  'artist' : artists['name'],
                   'description' : feeds[i]['description'],
                   'price' : feeds[i]['price'],
                   'url' : feeds[i]['url'],
