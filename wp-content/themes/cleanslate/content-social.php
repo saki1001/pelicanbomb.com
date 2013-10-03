@@ -1,6 +1,6 @@
 <?php
     // Social Media Sharing
-    $title = urlencode(get_the_title());
+    $title = get_the_title();
     $url = urlencode(get_permalink());
     $desc = urlencode(get_the_excerpt());
     $thumb = get_thumbnail_custom($post->ID, 'post-thumbnail');
