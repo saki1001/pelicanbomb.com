@@ -42,9 +42,15 @@
         $author = get_the_author();
     endif;
     
-    if( in_category('press') ){
+    if( in_category('press') ) :
         $permalink = get_field('press-link');
-    } else {
+        $target = "_blank";
+        $author = get_field('press-source');
+        
+    else :
         $permalink = get_permalink();
-    }
+        $target="_self";
+        
+    endif;
+    
 ?>
