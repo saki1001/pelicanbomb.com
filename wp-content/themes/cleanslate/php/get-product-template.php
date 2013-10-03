@@ -8,6 +8,7 @@
     $categoryName = $_GET['category'];
     $date = date('F j, Y', strtotime($_GET['date']));
     $title = $_GET['title'];
+    $artist = $_GET['artist'];
     $rawDescription = $_GET['description'];
     $description = strip_tags($rawDescription);
     $price = $_GET['price'];
@@ -46,13 +47,13 @@
             <p class="post-category">
                 <?php echo $categoryName; ?>
             </p>
-            <p class="post-date">
-                <?php echo $date; ?>
-            </p>
             <h4 class="post-title">
                 <?php echo $title; ?>
             </h4>
             <p class="post-author">
+                By <?php echo $artist; ?>
+            </p>
+            <p class="post-price">
                 Price: $<?php echo $price; ?>
             </p>
         </div>
