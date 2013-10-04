@@ -19,6 +19,13 @@ function get_featured_posts($category, $number, $template) {
         $orderBy = 'date';
     }
     
+    if ($number === 5) {
+        $order = 'ASC';
+    } else {
+        $order = 'DESC';
+    }
+    
+    
     $article_args = array(
         'category_name' => $category,
         'meta-key' => 'featured',
@@ -31,7 +38,8 @@ function get_featured_posts($category, $number, $template) {
         ),
         'post_status' => array( 'publish', 'draft' ),
         'posts_per_page' => $number,
-        'orderby'    => $orderBy
+        'orderby'    => $orderBy,
+        'order' => $order
     );
     
     $article_query = new WP_Query( $article_args );
