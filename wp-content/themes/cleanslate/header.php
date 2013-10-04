@@ -34,6 +34,7 @@
         </title>
         <meta name="description" content="<?php echo $site_description; ?>" />
         
+        <link rel="icon" type="image/x-icon" href="<?php echo home_url( '/' ); ?>/favicon.ico">
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style.css" />
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
         
