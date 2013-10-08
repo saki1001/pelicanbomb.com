@@ -40,7 +40,7 @@ body {
     height: 100%;
     position: relative;
     margin: 0 auto -215px; /* the bottom margin is the negative value of the footer's height */;
-/*    padding: 0 52px;*/
+    padding: 0 30px;
 }
 
 /*
@@ -1492,6 +1492,7 @@ body.single #content article.post.event .column.post-details #mapBox p {
 #footer .footer-wrapper {
     width: 920px;
     margin: 0 auto;
+    padding: 0 30px;
 }
 
 #footer .links .links-group {
