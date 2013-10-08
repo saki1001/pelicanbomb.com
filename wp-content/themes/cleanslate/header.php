@@ -43,7 +43,7 @@
         <![endif]-->
             
         <!--[if IE]>
-            <script src="<?php echo get_template_directory_uri(); ?>/css/ie.css" type="text/javascript"></script>
+            <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/ie.css" />
         <![endif]-->
         
         <?php wp_enqueue_scripts(); ?>
