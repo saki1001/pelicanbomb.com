@@ -22,7 +22,7 @@
         $showAds = false;
         
     } elseif ( is_home() ) {
-        _log('home');
+        
         $featuredCat = 'see';
         $featuredName = 'Featured Exhibition';
         $showAds = true;
