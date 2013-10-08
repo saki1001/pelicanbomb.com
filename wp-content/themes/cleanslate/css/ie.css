@@ -1,16 +1,4 @@
 body.home #primary .column a .title h2 {
-    font-family: 'Oswald-Light', Arial, sans-serif;
-    font-size: 11em;
-    text-transform: uppercase;
-    color: #F4F4F4;
-    writing-mode:tb-rl;
-    -webkit-transform:rotate(90deg);
-       -moz-transform:rotate(90deg);
-         -o-transform:rotate(90deg);
-    white-space:nowrap;
-    position: absolute;
-    bottom: 24%;
-    margin:0;
-    padding: 0;
-    z-index: 1000;
+    top: 10%;
+    right: 20%;
 }
