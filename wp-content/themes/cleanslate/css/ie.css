@@ -1,4 +1,5 @@
 body.home #primary .column a .title h2 {
-    top: 10%;
     right: 20%;
+    bottom: 10%;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
 }
