@@ -42,6 +42,15 @@
         $author = get_the_author();
     endif;
     
+    // Find the post author link
+    if( get_the_author() != 'The Pelican' ) :
+        $authorLink = '<a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '">' . $author . '</a>';
+    else :
+        $authorLink = $author;
+    endif;
+    
+    _log($authorLink);
+    
     if( in_category('press') ) :
         $permalink = get_field('press-link');
         $target = "_blank";
