@@ -96,6 +96,8 @@ a, a:link, a:visited {
     text-decoration: none;
 }
 
+#main #content .post-header a:link,
+#main #content .post-header a:visited,
 #main #content .text-container a,
 #main #content .text-container a:link,
 #main #content .text-container a:visited,
@@ -949,9 +951,10 @@ body.category-spaces #spaces .space .details span.label {
 }
 
 
-/* Search Template
+/* Search and Author Template
 -------------------------------------------------------------- */
-body.search #content {
+body.search #content,
+body.author #content {
     width: 100%;
     margin: 0;
 }
@@ -960,14 +963,20 @@ body.search #content h2 span {
     margin-left: 5px;
 }
 
-body.search #content .sub-header {
+body.author #content h2 {
+    margin-bottom: 20px;
+}
+
+body.search #content .sub-header,
+body.author #content .sub-header {
     width: 640px;
     margin-right: 40px;
     margin-bottom: 40px;
     float: left;
 }
 
-body.search #main #articles {
+body.search #main #articles,
+body.author #main #articles {
     width: 640px;
     margin-right: 20px;
     float: left;
