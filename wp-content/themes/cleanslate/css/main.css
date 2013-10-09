@@ -26,6 +26,8 @@ html, body {
 }
 
 body {
+    width: 100%;
+    min-width: 980px;
     font-family: Arial, sans-serif;
     font-size: 62.5%;
     line-height: 1;
@@ -1482,6 +1484,7 @@ body.single #content article.post.event .column.post-details #mapBox p {
 -------------------------------------------------------------- */
 #footer {
     width: 100%;
+    min-width: 980px;
     padding-top: 30px;
     color: #F4F4F4;
     background-color: #AAAAAA;
