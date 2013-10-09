@@ -33,7 +33,7 @@
     <div class="post-header">
         <div>
             <p class="post-author">
-                <span>By</span><?php echo $author; ?>
+                <span>By</span><?php echo $authorLink; ?>
             </p>
             
             <p class="post-date">
