@@ -24,7 +24,7 @@
             By <?php echo $author; ?>
         </p>
         <p class="post-excerpt">
-            <?php echo the_excerpt_max_charlength(180); ?>
+            <?php echo the_excerpt_max_charlength(180, get_the_excerpt()); ?>
         </p>
     </a>
 </article>
