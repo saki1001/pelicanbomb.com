@@ -1171,6 +1171,10 @@ body.single #content .post-tags span {
     float: left;
 }
 
+body.single #content .post-tags a {
+    text-transform: lowercase;
+}
+
 body.single #content .post-nav {
     width: 100%;
     padding-top: 20px;
