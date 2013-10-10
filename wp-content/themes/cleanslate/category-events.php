@@ -12,19 +12,40 @@
     <section id="content">
         
         <?php
+            // Navigate Posts by Calendar
+            $post_month = mysql2date('m', get_field('start-date'));
+            $post_year = mysql2date('Y', get_field('start-date'));
+            // $requestDate = $post_month . ', 1, ' . $post_year;
+            
+            $requestDate = date("Y-m-d");
+            
+            $currentPostDate = date('m-d-Y', strtotime(get_the_date()));
+            _log($currentPostDate);
+            _log($requestDate);
+            get_calendar_custom('26', $requestDate, $currentPostDate);
+        ?>
+        
+        
+        <?php
             $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+            
+            $firstDayUTS = mktime (0, 0, 0, date("m"), 1, date("Y"));
+            $lastDayUTS = mktime (0, 0, 0, date("m"), date('t'), date("Y"));
+            
+            $firstDay = date("Y-m-d", $firstDayUTS);
+            $lastDay = date("Y-m-d", $lastDayUTS);
             
             $events_args = array(
                 'category_name' => 'events',
                 'paged' => $paged,
                 'meta-key' => 'start-date',
-                // 'meta_query' => array(
-                //     array(
-                //         'key' => 'start-date',
-                //         'value' => array($firstDay, $lastDay),
-                //         'compare' => 'BETWEEN',
-                //     )
-                // ),
+                'meta_query' => array(
+                    array(
+                        'key' => 'start-date',
+                        'value' => array($firstDay, $lastDay),
+                        'compare' => 'BETWEEN',
+                    )
+                ),
                 'post_status' => 'publish',
                 'orderby'    => 'meta-value',
                 'order' => 'DESC'
@@ -74,8 +95,6 @@
         ?>
         
         <?php get_sidebar(); ?>
-        
-        <?php get_template_part( 'content-pagination' ); ?>
         
         <?php wp_reset_postdata(); ?>
     </section>
