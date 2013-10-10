@@ -317,6 +317,9 @@ update_option('image_default_link_type','none');
 // Custom Thumbnail Retreival
 include('php/get-thumbnail-custom.php');
 
+// Custom Calendar Retreival
+include('php/get-calendar-custom.php');
+
 // Home Primary Image section
 include('php/get-home-image.php');
 
