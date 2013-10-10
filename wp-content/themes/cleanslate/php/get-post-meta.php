@@ -49,8 +49,6 @@
         $authorLink = $author;
     endif;
     
-    _log($authorLink);
-    
     if( in_category('press') ) :
         $permalink = get_field('press-link');
         $target = "_blank";
