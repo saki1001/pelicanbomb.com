@@ -36,6 +36,12 @@
         display: none;
     }
     
+    article.summary,
+    article.preview,
+    article.feature {
+        font-size: 0.67em !important;
+    }
+    
     body.single #content article.post,
     body.single #content article.post .post-header,
     body.single #content article.post .text-container {
