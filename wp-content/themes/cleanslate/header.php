@@ -117,6 +117,7 @@
                 <div id="logo">
                     <h1 id="site-title">
                         <a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+                            <span><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" width="284" height="67" alt="Pelican Bomb"></span>
                             <span><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span>
                         </a>
                     </h1>
