@@ -22,13 +22,28 @@
             <h4 class="post-title">
                 <?php the_title(); ?>
             </h4>
-            <p class="post-author">
-                By <?php echo $author; ?>
-            </p>
+            <?php
+                if( in_category('read') ) {
+            ?>
+                <p class="post-author">
+                    By <?php echo $author; ?>
+                </p>
+            <?php
+                }
+                
+                if( in_category('events') ) {
+            ?>
+                <p class="post-description">
+                    <?php echo $address; ?>
+                </p>
+            <?php
+                }
+            ?>
         </div>
         
         <figure class="post-thumb">
             <?php
+                echo $dateBox;
                 $thumb = get_thumbnail_custom($post->ID, 'thumbnail');
             ?>
             <img src="<?php echo $thumb[0]; ?>" width="<?php echo $thumb[1]; ?>" height="<?php echo $thumb[2]; ?>" alt="<?php the_title(); ?>" />
