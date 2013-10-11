@@ -58,7 +58,7 @@ function get_calendar_custom($requestDate) {
     _log($this_query);
 ?>
         <nav>
-            <h3 data-date="<?php echo $requestDate; ?>" data-query="<?php echo $this_query; ?>"><?php echo date('F Y', $firstDayUTS); ?></h3>
+            <h3 data-date="<?php echo $requestDate; ?>" data-query="<?php print_r($this_query); ?>"><?php echo date('F Y', $firstDayUTS); ?></h3>
     
 <?php
         if( $previous_query->have_posts() ) {
