@@ -440,12 +440,14 @@ body.home #secondary .featured.products .preview {
 
 /* Article Date Box
 -------------------------------------------------------------- */
-article.summary .post-thumb {
+article.preview .post-thumb,
+article.feature .post-thumb {
     overflow: hidden;
     position: relative;
 }
 
-article.summary .post-thumb .date-box {
+article.preview .post-thumb .date-box,
+article.feature .post-thumb .date-box {
     position: absolute;
     right: 0;
     width: 45px;
@@ -558,6 +560,10 @@ article.preview.feature a .post-category {
     margin-bottom: 10px;
 }
 
+body.category-events article.preview a .post-category {
+    margin-bottom: 18px;
+}
+
 article.preview.product a .post-category {
     margin-bottom: 20px;
 }
@@ -583,10 +589,9 @@ article.preview.product a .post-author {
   margin-bottom: 5px;
 }
 
-article.preview.product a .post-description {
+article.preview a .post-description {
     font-size: 1.1em;
     max-height: 44px;
-    margin-bottom: 5px;
     overflow: hidden;
 }
 
@@ -856,6 +861,49 @@ body.category-see #main #sidebar {
     width: 185px;
 }
 
+/* Events Category
+-------------------------------------------------------------- */
+body.category-events #events-calendar {
+    width: 640px;
+    margin-right: 38px;
+    border: solid 1px #E6E6E6;
+    float: left;
+}
+
+body.category-events #events-calendar nav {
+    width: 100%;
+    position: relative;
+    background: #CCC;
+}
+
+body.category-events #events-calendar nav h3 {
+    width: 600px;
+    text-align: center;
+    padding-top: 18px;
+}
+
+body.category-events #events-calendar nav a.month {
+    width: 20px;
+    height: 15px;
+    font-size: 2em;
+    display: block;
+    position: absolute;
+    top: 15px;
+}
+
+body.category-events #events-calendar nav a.month#prev-link {
+    left: 20px;
+}
+
+body.category-events #events-calendar nav a.month#next-link {
+    right: 20px;
+}
+
+body.category-events #main #articles {
+    width: 620px;
+    margin: 20px 0 0 20px;
+    min-height: 160px;
+}
 
 /* Spaces Category
 -------------------------------------------------------------- */
