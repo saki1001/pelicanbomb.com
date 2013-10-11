@@ -29,7 +29,7 @@ function get_calendar_custom($requestDate) {
         
         $args = array(
             'category_name' => 'events',
-            'meta-key' => 'start-date',
+            'meta_key' => 'start-date',
             'meta_query' => array(
                 array(
                     'key' => 'start-date',
@@ -54,6 +54,7 @@ function get_calendar_custom($requestDate) {
     $previous_query = get_query($prevFirstDay, $prevLastDay, true);
     $next_query = get_query($nextFirstDay, $nextLastDay, true);
     $this_query = get_query($firstDay, $lastDay, false);
+    _log($this_query);
 ?>
         <nav>
             <h3><?php echo date('F Y', $firstDayUTS); ?></h3>
