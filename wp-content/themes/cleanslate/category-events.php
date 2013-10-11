@@ -11,80 +11,19 @@
     
     <section id="content">
         
-        <?php
-            // Navigate Posts by Calendar
-            $post_month = mysql2date('m', get_field('start-date'));
-            $post_year = mysql2date('Y', get_field('start-date'));
-            // $requestDate = $post_month . ', 1, ' . $post_year;
-            
-            $requestDate = date("Y-m-d");
-            
-            $currentPostDate = date('m-d-Y', strtotime(get_the_date()));
-            _log($currentPostDate);
-            _log($requestDate);
-            get_calendar_custom('26', $requestDate, $currentPostDate);
-        ?>
-        
+        <h2>
+            <?php wp_title(''); ?>
+        </h2>
         
         <?php
-            $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-            
-            $firstDayUTS = mktime (0, 0, 0, date("m"), 1, date("Y"));
-            $lastDayUTS = mktime (0, 0, 0, date("m"), date('t'), date("Y"));
-            
-            $firstDay = date("Y-m-d", $firstDayUTS);
-            $lastDay = date("Y-m-d", $lastDayUTS);
-            
-            $events_args = array(
-                'category_name' => 'events',
-                'paged' => $paged,
-                'meta-key' => 'start-date',
-                'meta_query' => array(
-                    array(
-                        'key' => 'start-date',
-                        'value' => array($firstDay, $lastDay),
-                        'compare' => 'BETWEEN',
-                    )
-                ),
-                'post_status' => 'publish',
-                'orderby'    => 'meta-value',
-                'order' => 'DESC'
-            );
-            
-            // Custom Query
-            $events_query = new WP_Query( $events_args );
-            
-            $thisMonth = date('m');
-            $thisTime = mktime(0, 0, 0, $thisMonth, date('d'), date('Y'));
-            
-            if ( $events_query->have_posts() ) :
+            if ( have_posts() ) :
         ?>
-                <div id="articles">
+            <div id="events-calendar">
         <?php
-                while ( $events_query->have_posts() ) : $events_query->the_post();
-                    
-                    $newTime = strtotime(get_field('start-date'));
-                    $newMonth = date('m', $newTime);
-                    
-                    if( $events_query->current_post === 0 && $newMonth === $thisMonth ) {
+                $requestDate = date("Y-m-d");
+                get_calendar_custom($requestDate);
         ?>
-                    <h2><?php echo date('F', $thisTime); ?></h2>
-        <?php
-                    }
-                    
-                    if( $newMonth != $thisMonth ) {
-        ?>
-                        <h2><?php echo date('F', $newTime); ?></h2>
-        <?php
-                        $thisMonth = $newMonth;
-                    }
-                    
-                    get_template_part( 'content-summary', get_post_format() );
-                endwhile;
-        ?>
-                
-                </div>
-                
+            </div>
         <?php
             else :
                 
@@ -96,7 +35,6 @@
         
         <?php get_sidebar(); ?>
         
-        <?php wp_reset_postdata(); ?>
     </section>
     
 <?php get_footer(); ?>
