@@ -67,6 +67,14 @@
         ?>
         
         <?php
+            if ( is_category('events') ) {
+        ?>
+            <script src="<?php echo get_template_directory_uri(); ?>/js/load-adjacent-calendar.js" type="text/javascript"></script>
+        <?php
+            }
+        ?>
+        
+        <?php
             if ( is_single() ) {
         ?>
             <script src="<?php echo get_template_directory_uri(); ?>/js/slideshow.js" type="text/javascript"></script>
