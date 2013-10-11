@@ -79,7 +79,7 @@ function get_calendar_custom($requestDate) {
         
         while ( $this_query->have_posts() ) : $this_query->the_post();
             
-            get_template_part( 'content-summary', get_post_format() );
+            get_template_part( 'content-preview', get_post_format() );
             
         endwhile;
         
