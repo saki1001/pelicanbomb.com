@@ -51,7 +51,10 @@
         $city = get_field('location-city');
     }
     
-    // Formatted address
-    $address = get_field('location-address') . ' ' . $city . ' ' . get_field('location-zip');
+    // Map-formatted address
+    $dataAddress = get_field('location-address') . ' ' . $city . ' ' . get_field('location-zip');
+    
+    // Frontend-formatted address
+    $address = get_field('location-address');
     
 ?>
