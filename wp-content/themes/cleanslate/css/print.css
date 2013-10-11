@@ -1,0 +1,55 @@
+@media print{
+    
+    body {
+        font-family: 'Georgia', serif;
+        font-size: 0.8em;
+    }
+    
+    h1, h2, h3, h4, h5 {
+        font-family: 'Georgia', serif !important;
+        font-weight: bold;
+    }
+    
+    header #main-menu,
+    footer {
+        display: none;
+    }
+    
+    header .wrapper {
+        border: none;
+    }
+    
+    body.home header #logo {
+        width: 284px;
+        height: 67px;
+    }
+    
+    header h1 a img {
+        visibility: visible;
+    }
+    
+    #media figcaption {
+        line-height: 1.5;
+    }
+    
+    #media .pager-container {
+        display: none;
+    }
+    
+    body.single #content article.post,
+    body.single #content article.post .post-header,
+    body.single #content article.post .text-container {
+        width: 100%;
+    }
+    
+    body.single #content article.post .text-container {
+        line-height: 1.4;
+    }
+    
+    body.single #sidebar,
+    body.single .post-share,
+    body.single .post-footer {
+        display: none;
+    }
+    
+}
