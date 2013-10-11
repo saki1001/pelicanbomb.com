@@ -187,8 +187,7 @@ body.home header h1 a {
     width: 100%;
 }
 
-header h1 a span,
-header h1 a img {
+header h1 a span {
     visibility: hidden;
 }
 
