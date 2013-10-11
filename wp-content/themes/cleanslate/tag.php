@@ -12,7 +12,7 @@
     <section id="content">
         
         <h2>
-            <?php wp_title(''); ?>
+            Tagged: <?php wp_title(''); ?>
         </h2>
         
     <?php
@@ -37,7 +37,7 @@
         endif;
     ?>
         
-        <?php get_sidebar('sort'); ?>
+        <?php get_sidebar(); ?>
         
         <?php get_template_part( 'content-pagination' ); ?>
         
