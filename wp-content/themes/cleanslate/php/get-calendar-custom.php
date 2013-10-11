@@ -38,7 +38,7 @@ function get_calendar_custom($requestDate) {
                 )
             ),
             'post_status' => 'publish',
-            'orderby'    => 'meta-value',
+            'orderby'    => 'meta_value',
             'order' => 'ASC'
         );
         
@@ -56,7 +56,7 @@ function get_calendar_custom($requestDate) {
     $this_query = get_query($firstDay, $lastDay, false);
 ?>
         <nav>
-            <h3 data-date="<?php echo $requestDate; ?>" data-query="<?php echo serialize($this_query->meta_query); ?>"><?php echo date('F Y', $firstDayUTS); ?></h3>
+            <h3><?php echo date('F Y', $firstDayUTS); ?></h3>
     
 <?php
         if( $previous_query->have_posts() ) {
