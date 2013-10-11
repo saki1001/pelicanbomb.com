@@ -15,8 +15,6 @@
         <figure class="post-thumb">
             
             <?php
-                echo $dateBox;
-                
                 $thumb = get_thumbnail_custom($post->ID, 'thumbnail');
             ?>
             <img src="<?php echo $thumb[0]; ?>" width="<?php echo $thumb[1]; ?>" height="<?php echo $thumb[2]; ?>" alt="<?php the_title(); ?>" />
