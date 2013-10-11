@@ -83,7 +83,7 @@
             }
         ?>
             
-            <ul class="addy" data-coord="" data-address="<?php echo $address;?>">
+            <ul class="addy" data-coord="" data-address="<?php echo $dataAddress;?>">
                 <li class="label">Place:</li>
                 <li class="address">
                     <?php echo $address; ?>
