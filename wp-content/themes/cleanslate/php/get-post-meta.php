@@ -5,7 +5,7 @@
     $categoryName = '';
     
     // Get the Category
-    if( is_category('events') ) {
+    if( in_category('events') ) {
         $categoryName = get_field('event-type');
     } else {
         
@@ -48,8 +48,6 @@
     else :
         $authorLink = $author;
     endif;
-    
-    _log($authorLink);
     
     if( in_category('press') ) :
         $permalink = get_field('press-link');
