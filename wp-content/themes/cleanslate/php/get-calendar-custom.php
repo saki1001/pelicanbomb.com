@@ -43,7 +43,7 @@ function get_calendar_custom($requestDate) {
         );
         
         $posts_query = new WP_Query( $args );
-        
+        _log($args);
         return $posts_query;
         
         if( $reset === true ) {
@@ -54,6 +54,8 @@ function get_calendar_custom($requestDate) {
     $previous_query = get_query($prevFirstDay, $prevLastDay, true);
     $next_query = get_query($nextFirstDay, $nextLastDay, true);
     $this_query = get_query($firstDay, $lastDay, false);
+    
+    _log($this_query);
 ?>
         <nav>
             <h3><?php echo date('F Y', $firstDayUTS); ?></h3>
