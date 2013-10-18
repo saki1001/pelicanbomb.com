@@ -24,7 +24,7 @@ $(document).ready(function() {
         var imageHeight = $(this).height();
         var containerWidth = $('.image-container figure').width();
         var containerHeight = $('.image-container figure').height();
-        console.log(containerWidth);
+        
         if( imageWidth > containerWidth ){
           $(this).attr('width', containerWidth);
           $(this).attr('height', imageHeight/(imageWidth/containerWidth));
@@ -189,7 +189,7 @@ $(document).ready(function() {
     
     var showNav = function() {
         $(this).children('.arrow').fadeIn(100);
-        console.log('show');
+        
     };
     
     var hideNav = function() {
@@ -206,14 +206,23 @@ $(document).ready(function() {
         
         var width = $(this).width();
         var height = $(this).height();
-        var marginTop = ($('.image-container figure').height() - height)/2 + 'px';
+        var containerHeight = $('.image-container figure').height();
+        var containerWidth = $('.image-container figure').width();
+        var marginTop = (containerHeight - height)/2 + 'px';
         
-        // add marginTop and negative marginTop to bottom
-        // to prevent container from becoming too large
-        $(this).css({
-            'width': width,
-            'padding-top': marginTop
-        });
+        if( height > containerHeight ) {
+            $(this).css({
+                'height': '570px'
+            });
+        } else {
+            // add marginTop and negative marginTop to bottom
+            // to prevent container from becoming too large
+            $(this).css({
+                'width': width,
+                'padding-top': marginTop
+            });
+        }
+        
     });
     
     $('#pager .page').on('click', showImage);
