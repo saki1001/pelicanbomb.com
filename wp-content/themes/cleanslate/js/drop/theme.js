@@ -210,7 +210,7 @@ $(document).ready(function() {
         var containerWidth = '570';
         var marginTop = (containerHeight - height)/2 + 'px';
         var widthToRatio = width/(height/570) + 'px';
-        console.log(height);
+        
         if( height > containerHeight ) {
             $(this).css({
                 'height': '570px',
