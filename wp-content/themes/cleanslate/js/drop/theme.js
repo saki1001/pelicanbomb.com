@@ -213,7 +213,7 @@ $(document).ready(function() {
         console.log(height);
         if( height > containerHeight ) {
             $(this).css({
-                'height': '570px'
+                'height': '570px',
                 'width': widthToRatio
             });
         } else {
