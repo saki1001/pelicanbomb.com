@@ -209,10 +209,12 @@ $(document).ready(function() {
         var containerHeight = $('.image-container figure').height();
         var containerWidth = $('.image-container figure').width();
         var marginTop = (containerHeight - height)/2 + 'px';
+        var widthToRatio = width/(height/570) + 'px';
         
         if( height > containerHeight ) {
             $(this).css({
                 'height': '570px'
+                'width': widthToRatio
             });
         } else {
             // add marginTop and negative marginTop to bottom
