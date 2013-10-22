@@ -54,14 +54,37 @@ var showProductsFeed = function(feeds, options, limit) {
         }
     };
     
+    // Create array that classfies categories
+    // Based on whether in 'Featured' category or not
+    var checkFeatured = function (catArray) {
+        
+        var featured = new Array();
+        
+        for (var i=0; i<catArray.length; i++) {
+            
+            if (catArray[i]['name'] === 'FEATURED') {
+                featured.push('true');
+            } else {
+                featured.push('false');
+            }
+            
+        }
+        
+        return featured;
+    };
+    
     // Loop through API results
     for (var i=0; i<feeds.length; i++) {
         
         var categories = feeds[i]['categories'][0];
         var artists = feeds[i]['artists'][0];
         
+        // Send to function to create array of categories
+        var catArray = feeds[i]['categories'];
+        var featArray = checkFeatured(catArray);
+        
         // Filter by category
-        if( categories != undefined && categories['name'] === 'FEATURED' ) {
+        if( categories != undefined && featArray.indexOf('true') != -1 ) {
             
             var templateURL = templateDirectoryUrl + '/php/get-product-template.php';
             
