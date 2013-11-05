@@ -84,10 +84,16 @@
         ?>
             
             <ul class="addy" data-coord="" data-address="<?php echo $dataAddress;?>">
+            <?php
+                if( $address ) {
+            ?>
                 <li class="label">Place:</li>
                 <li class="address">
                     <?php echo $address; ?>
                 </li>
+            <?php
+                }
+            ?>
             </ul>
             
             <div id="mapBox"></div>
